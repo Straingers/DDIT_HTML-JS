@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnGet").click(function(){
+				var userGender = $("input[name=gender]:checked").val();
+				
+				var userInfo = "이름 : " + $("#userName").val()
+							+ "\n성별 : " + $("label[for=" + userGender + "]").text() 
+							+ "\n소개 : " + $("#description").val()
+							+ "\n직업 : " + $("#job option:selected").text()
+				alert(userInfo);
+			});
+			
+			$("#btnSet").click(function(){
+				$("#userName").val("홍길동");
+				document.getElementById("male").checked = "checked";
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="">
+		이름 <input type="text" id="userName" value="아이유"><br><br>
+		성별 
+		<input type="radio" name="gender" id="male" value="M"> 
+		<label for="male">남자</label> 
+		<input type="radio" name="gender" id="female" value="F" checked="checked"> 
+		<label for="female">여자</label> <br><br>
+		소개 <textarea rows="5" cols="30" id="description"></textarea><br><br>
+		직업 
+		<select id="job">
+			<option value="programmer">프로그래머</option>
+			<option value="teacher">선생님</option>
+			<option value="student">학생</option>
+			<option value="whiteHands">백수</option>
+		</select><br><br>
+		<button type="button" id="btnGet">조사하기</button> 
+		<button type="button" id="btnSet">이름변경</button>
+	</form>
+</body>
+</html>

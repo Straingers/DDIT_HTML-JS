@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//사람 이름을 계속 입력받아 배열에 저장하고 그 저장된 이름을 출력하는 프로그램을 작성하시오.
+		function proc1() {
+			var persons = [];
+			while(true){
+				var name = prompt("이름을 입력하세요.\n빈값이나 취소버튼 클릭시 종료", "");
+				if(name == null || name == ""){
+					break;
+				}
+				persons.push(name);
+			}
+			document.getElementById("divResult").innerHTML = persons;
+		}
+         /* 서로 중복되지 않는 정수 5개를 입력받아 출력 */
+		 function proc2(){
+	         var arr = [];
+	         
+	         while(true){
+	            var value = prompt("정수를 입력하세요");
+	            //value가 arr에 존재하는지 확인하고
+	            var idx = arr.indexOf(value);
+	            
+	            if(idx == -1){
+	               // 존재하지 않으면 arr에 value를 추가
+	               arr.push(value);
+	               // -추가하고 arr이 5개면 종료
+	               if(arr.length == 5)
+	                  break;
+	            }else{
+	               // 존재하면 다시 prompt
+	               continue;               
+	            }
+	         }
+	         document.getElementById("divResult2").innerHTML = arr;
+	      }
+		
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc1();">문제1</button><br><br>
+	<div id="divResult" style="border: 1px dotted red; width: 100%; height: 100px;">
+	</div><br>
+	<button type="button" onclick="proc2();">문제2</button><br><br>
+	<div id="divResult2" style="border: 1px dotted red; width: 100%; height: 100px;">
+	</div><br>
+</body>
+</html>

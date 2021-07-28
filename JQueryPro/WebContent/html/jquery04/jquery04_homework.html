@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>예제3</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<style type="text/css">
+		button {
+			border: none;
+			border-radius: 30px;
+			background-color: black;
+			color: white;
+			padding: 7px;
+			text-decoration: none;
+		}
+		button:hover {
+			background-color: blue;
+		}
+		button:focus {
+			border: none;
+			outline: none;
+		}
+	</style>
+	<script type="text/javascript">
+		// 버튼을 클릭하면, 이미지에 대해서 해당 버튼 이벤트 수행
+		// - show, hide
+		// - slide up, down, toggle
+		// - fade in, out, to, toggle
+		$(document).ready(function(){	
+			$("#show").click(function(){
+				$("img").css("opacity", 1);
+				$("img").show();
+			});
+			
+			$("#hide").click(function(){
+				$("img").css("opacity", 1);
+				$("img").hide();
+			});
+			
+			$("#slideUp").click(function(){
+				$("img").css("opacity", 1);
+				$("img").slideUp();
+			});
+			
+			$("#slideDown").click(function(){
+				$("img").css("opacity", 1);
+				$("img").slideDown();
+			});
+			
+			$("#slideToggle").click(function(){
+				$("img").css("opacity", 1);
+				$("img").slideToggle();
+			});
+			
+			$("#fadeIn").click(function(){
+				$("img").css("opacity", 1);
+				$("img").fadeIn(1000);
+			});
+			
+			$("#fadeOut").click(function(){
+				$("img").css("opacity", 1);
+				$("img").fadeOut("slow");
+			});
+			
+			$("#fadeTo").click(function(){
+				$("img").fadeTo(1000, 0.5);
+			});
+			
+			$("#fadeToggle").click(function(){
+				$("img").css("opacity", 1);
+				$("img").fadeToggle();
+			});
+			
+			
+		});
+	</script>
+</head>
+<body>
+	<button type="button" id="show">Show</button>
+	<button type="button" id="hide">Hide</button>
+	<button type="button" id="slideUp">SlideUp</button>
+	<button type="button" id="slideDown">SlideDown</button>
+	<button type="button" id="slideToggle">SlideToggle</button>
+	<button type="button" id="fadeIn">FadeIn</button>
+	<button type="button" id="fadeOut">FadeOut</button>
+	<button type="button" id="fadeTo">FadeTo</button>
+	<button type="button" id="fadeToggle">FadeToggle</button>
+	<br><br>
+	<img alt="사자는코에혀닿음" src="../../images/lion.jpg">
+</body>
+</html>

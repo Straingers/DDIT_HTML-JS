@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>innerHTML 문제</title>
+	<script type="text/javascript">
+		function gugudan() {
+			var num = document.getElementById("gugudan").value;
+			
+			var result = "";
+			for(var i = 1; i <= 9; i++) {
+				result += (num + " X " + i + " = " + (num*i) + "<br>");
+			}
+
+			//case 1) 요소를 생성해서 추가 - createElement
+			var ele = document.createElement("p");
+			ele.innerHTML = result;
+			document.getElementById("result").appendChild(ele);
+			
+			// case 2) 텍스트노드를 생성해서 추가 - createTextNote
+// 			var node = document.createTextNode(result);
+// 			document.getElementById("result").appendChild(node);
+
+			// case 3) innerHTML
+// 			document.getElementById("result").innerHTML = result;
+		}
+		window.onload = function(){
+			var parentEle = document.getElementById("gugudan");
+			for(var i = 2; i <= 9; i++){
+				var ele = document.createElement("option");
+				ele.value = i;
+				ele.innerHTML = i + "단";
+				parentEle.appendChild(ele);
+			}
+		}
+	</script>
+</head>
+<body style="text-align: center;">
+	<h2>select 와 innerHTML을 이용하여 구구단을 만드시오.</h2>
+	<select id="gugudan">
+<!-- 		<option value="2">2단</option> -->
+<!-- 		<option value="3">3단</option> -->
+<!-- 		<option value="4">4단</option> -->
+<!-- 		<option value="5">5단</option> -->
+<!-- 		<option value="6">6단</option> -->
+<!-- 		<option value="7">7단</option> -->
+<!-- 		<option value="8">8단</option> -->
+<!-- 		<option value="9">9단</option> -->
+	</select>
+	<button type="button" onclick="gugudan()">출 력</button>
+	<br>
+	<h2>결과 출력</h2>
+	<div id="result" style="font-size: 20px"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>새로운 요소 만들기</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 1) '이미지추가'버튼 만들기
+			var ele = $('<button type="button" onclick="getImg()">이미지 추가</button><br><br>');
+			// 2) 버튼을 body 안에 추가	
+			ele.appendTo("body"); // == $("body").append(ele);
+		});
+		function getImg(){
+			var imgEle = $("<img>", {
+				"alt" : "flowers"
+				, "src" : "../../images/flowers.jpg"
+				, "height" : "200"
+				, "click" : function(){
+					$(this).css("border", "2px solid red");
+				}
+			});
+			imgEle.appendTo("body"); // == $("body").append(imgEle);
+			$("body").append("<br>");
+		}
+	</script>
+</head>
+<body>
+	<h1>새로운 요소 만들기</h1>
+</body>
+</html>

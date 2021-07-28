@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>FileAPI</title>
+	<script type="text/javascript">
+		function readFile() {
+			var files = document.getElementById("attachFile").files; 
+			// => input의 FileList
+			var file = files[0];
+			var str = ""; 
+			str += "파일명\t\t: " + file.name + "\n";
+			str += "파일크기\t: " + file.size + "\n";
+			str += "파일타입\t: " + file.type + "\n";
+			str += "최근수정일\t: " + file.lastModifiedDate + "\n";
+			
+			document.getElementById("result").innerHTML = str;
+		}
+		function readFileContent() {
+			var files = document.getElementById("attachFile").files;
+			
+			var file = files[0];
+			var reader = new FileReader(); // 파일을 읽기 위한 객체
+			reader.readAsText(file, "UTF-8"); // 파일을 읽어서 reader에 담기
+				// , 파일을 읽어서 FileReader 객체의 result 속성에 담는다.
+			
+			// 파일 읽기가 끝나면 
+			reader.onload = function () {
+				// onload 이벤트에서 수행할 내용
+				document.getElementById("result").innerHTML
+				 = reader.result;
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="file" id="attachFile">
+	<button type="button" onclick="readFile()">파일 정보</button>
+	<button type="button" onclick="readFileContent()">파일 내용</button><br><br>
+	<textarea id="result" rows="10" cols="60"></textarea>
+</body>
+</html>

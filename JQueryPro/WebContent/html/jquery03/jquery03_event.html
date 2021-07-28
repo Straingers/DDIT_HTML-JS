@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		// 화면 초기 설정
+		$(document).ready(function(){
+			$("p").click(function(){
+				alert("클릭했습니다.");
+			});
+	 		// $("p").mouseover()
+	 		// $("p").mouseout()
+			$("p").on({
+				mouseover : function(){
+// 					$("p").css("background-color", "yellow"); => p요소 전체를 찾아서 css를 적용함
+					$(this).css("background-color", "yellow");
+				}
+				, mouseout : function(e){
+// 					$("p").css("background-color", "");
+					$(this).css("background-color", "");
+					console.log(e);
+					console.log(e.type); // "mouseout"
+					console.log(e.target); // <p>~~~</p>
+					console.log(e.button); // 0
+					// e.screenX, e.pageX
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1 onclick="alert(1);">JQuery 이벤트</h1>
+	<p>이벤트를 넣어줄게요</p>
+	<p>이벤트를 넣어줄게요</p>
+	<p>이벤트를 넣어줄게요</p>
+	<p>이벤트를 넣어줄게요</p>
+</body>
+</html>

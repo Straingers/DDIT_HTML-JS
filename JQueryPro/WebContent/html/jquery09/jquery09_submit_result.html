@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	안녕하세요, '<span id="spUserName">홍길동</span>'씨.<br>
+	올해로 '<span id="spUserAge">39</span>'살 이시군요.
+</body>
+<script type="text/javascript">
+	var userName = "";
+	var userAge = "";
+	
+	var url = window.location.href;
+	//http://localhost:9090/JQueryPro/html/jquery09/jquery09_submit_result.html?userName=&userAge=
+	
+	var param = url.substr(url.indexOf("?") + 1); 
+	//userName=&userAge=
+	
+	var arr = param.split("&");
+	userName = arr[0].split("=")[1];
+	userAge = arr[1].split("=")[1];
+	
+	// encodeURI("아이유") => 인코딩 안함
+	// decodeURI(인코딩 안된 문장) => 인코딩 되서나옴
+	document.getElementById("spUserName").innerHTML = decodeURI(userName);
+	document.getElementById("spUserAge").innerHTML = userAge;
+</script>
+</html>

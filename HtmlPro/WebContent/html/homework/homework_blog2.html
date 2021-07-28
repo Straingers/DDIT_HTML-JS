@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#header {
+			border-radius: 20px;
+			background-color: yellow;
+			text-align: center;
+			width: 98%;
+			height: 150px;
+			margin: 0 auto;
+			position: absolute;
+		}
+		#headerH1 {
+			padding-top: 18px;
+			text-align: center;
+		}
+		
+		#navi {
+			border-radius: 20px;
+			background-color: #F5A9F2;
+			width: 30%; 
+			float: left;
+			height: 350px;
+			position: absolute;
+			top: 170px;
+		}
+		#navi img {
+			width: 200px;
+			height: 100px;
+		}
+		#navi #img {
+			text-align: center;
+		}
+		#naviUl {
+			display: table;
+			margin: auto;
+			padding: 0px;
+		}
+		#navipadding {
+			padding: 0px 15px;
+		}
+		a:visited {
+			color: blue;
+		}
+		a:hover {
+			color: white;
+		}
+				
+		#content {
+			border-radius: 20px;
+			background-color: #A9E2F3;
+			width: 66.6%; 
+			float: right;
+			height: 350px;
+			position: absolute;
+			top: 170px;
+			left: 32%;
+		}	
+		#contentpadding {
+			padding: 0px 15px;
+		}
+		#content #semantic {
+			border: 2px dotted green;
+			border-radius: 20px;
+			margin-top: 20px;
+			padding: 0px 15px;
+			height: auto;
+			background-color: #A9D0F5;
+		}
+		#content #div {
+			border: 2px dotted green;
+			border-radius: 20px;
+			margin-top: 20px;
+			padding: 0px 15px;
+			background-color: #A9D0F5;
+		}
+			
+		#footer {
+			border-radius: 20px;
+			background-color: #8181F7;
+			width: 98%;
+			height: 50px;
+			clear: both;
+			text-align: center;
+			font-size: 1.2em;
+			position: absolute;
+			top: 530px;
+			padding-top: 18px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div id="headerH1">
+			<h1>My Blog Page</h1>
+			<p>시멘틱 태그로 만들어진 페이지입니다.</p>
+		</div>
+	</div>
+	<div id="navi">
+		<div id="navipadding">
+			<h2>Links</h2>
+			<ul id="naviUl">
+				<li><a href="https://www.w3schools.com/" target="_blank">
+						W3C
+					</a>
+				</li>
+				<li><a href="https://www.mozilla.org/ko/" target="_blank">
+						MOZILLA
+					</a>
+				</li>
+				<li><a href="https://www.htmldog.com/" target="_blank">
+						HTML Dogs
+					</a>
+				</li>
+			</ul>
+			<div id="img">
+					<br><br>
+					<img src="spongebob.png" alt="스폰지밥">
+					<p>스폰지밥</p>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		<div id="contentpadding">
+			<div id="semantic">
+				<h2>Semantic Tags</h2>
+				<p>
+					시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을 
+					명확하게 알려주는 요소이다.
+				</p>
+			</div>
+			<div id="div">
+				<h2>div와 span</h2>
+				<p>
+					div는 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. 
+					span 요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		Copyright (c) 2013 Hong
+	</div>
+</body>
+</html>

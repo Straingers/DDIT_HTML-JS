@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="zip">
+	<select id="retrieveAddrList" parameterClass="kr.or.ddit.common.vo.ZipVO" resultClass="kr.or.ddit.common.vo.ZipVO">
+		SELECT ZIPCODE zipCode
+			 , SIDO    sido
+			 , NVL(GUGUN, ' ')   gugun
+			 , DONG    dong
+			 , NVL(BUNJI, ' ')   bunji
+		FROM   TB_ZIP
+		WHERE  1=1
+		AND    DONG LIKE '%' || #dong# || '%'
+		ORDER  BY SEQ
+	</select>	
+</sqlMap>

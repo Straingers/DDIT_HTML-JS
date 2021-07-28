@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function test(){
+			var ele = $("<p>짜잔</p>"); // => p요소가 생성됨
+			ele.appendTo("body"); // 선택한 요소를 ~에 추가하기
+			
+// 			$('<img alt="커피" src="../../images/coffee2.jpg">')
+			var imgEle = $("<img>", {
+				"alt" : "사자"
+				, "src" : "../../images/lion.jpg"
+				, "height" : "100"
+				, "click" : function(){
+					$(this).remove();
+				}
+			});
+			imgEle.appendTo("body");
+		}
+	</script>
+</head>
+<body>
+	<p>JQuery로 요소 생성하기</p>
+	<img alt="커피" src="../../images/coffee2.jpg" height="100">
+	<button type="button" onclick="test()">클릭</button>
+</body>
+</html>

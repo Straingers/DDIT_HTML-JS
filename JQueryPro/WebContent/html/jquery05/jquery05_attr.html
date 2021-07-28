@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<style type="text/css">
+		img {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btn").click(function(){
+				var arr1 = $("img");
+				// for문
+// 				for(var i; i < arr1.length; i++){
+// 					var src = $(this).attr("src");
+// 					var arr = src.split("/");
+// 					var fileName = arr[arr.length - 1];
+// 					$(arr1[i]).attr("title", fileName);
+// 				}	
+				
+				// each문
+				$("img").each(function(){
+					var src = $(this).attr("src");
+					var arr = src.split("/");
+					var fileName = arr[arr.length - 1];
+					$(this).attr("title", fileName);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<img alt="" src="../../images/lion.jpg">
+	<img alt="" src="../../images/dora.jpg">
+	<img alt="" src="../../images/coffee1.jpg">
+	<img alt="" src="../../images/flowers.jpg">
+	<img alt="" src="../../images/Santorini.jpg">
+	<br>
+	<button type="button" id="btn">눌러보세요</button>
+</body>
+</html>

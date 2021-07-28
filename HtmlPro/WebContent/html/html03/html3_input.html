@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>input 예제</title>
+</head>
+<body>
+	<form>
+		<!-- 아이디, 비밀번호, 이름, 이메일, 저장버튼-->
+		<fieldset>
+			<legend>회원정보</legend>
+			아이디 : <input type="text" name="userId" size="5" maxlength="10" title="사용자 아이디"><br>
+			비밀번호 : <input type="password" name="userPassword" required><br>
+			비밀번호확인 : <input type="password" name="userPassword" placeholder="비밀번호는 3자리 이상입니다."><br>
+			이름 : <input type="text" name="userName" size="3" readonly><br>
+			이메일 : <input type="text" name="userEmail" disabled><br>
+			성별 : 
+			<input type="radio" name="gender" value="M" id="genderMale">
+			<label for="genderMale">남자</label>
+			<input type="radio" name="gender" value="F" id="genderFemale">
+			<label for="genderFemale">여자</label><br>
+			거주지역 :
+			<input type="radio" name="location" value="daejeon" id="locationDaejeon">
+			<label for="locationDaejeon">대전</label>
+			<input type="radio" name="location" value="no_daejeon" id="locationNoDaejeon">
+			<label for="locationNoDaejeon">대전 외</label><br>
+			취미 :
+			<input type="checkbox" name="hobby" id="hobbyBook">
+			<label for="hobbyBook">독서</label>
+			<input type="checkbox" name="hobby" id="hobbyEx">
+			<label for="hobbyEx">운동</label>
+			<input type="checkbox" name="hobby" id="hobbyMovie">
+			<label for="hobbyMovie">영화시청</label>
+			<input type="checkbox" name="hobby" checked id="hobbyTrip">
+			<label for="hobbyTrip">여행</label>
+			<input type="checkbox" name="hobby" id="hobbyMusic">
+			<label for="hobbyMusic">음악감상</label>
+			<input type="checkbox" name="hobby" id="hobbyFood">
+			<label for="hobbyFood">맛집탐방</label>
+			<br>
+			자격증 : 	
+			<input type="checkbox" name="license">교원자격증
+			<input type="checkbox" name="license">용접기능사
+			<input type="checkbox" name="license">정보처리기사
+			<br>
+			프로필사진 : <input type="file" accept="image/gif">
+		</fieldset>
+		<br>
+		<input type="button" value="저장"><br>
+		<input type="submit" value="전송"><br>
+		<input type="reset" value="reset"><br>
+		<input type="hidden" value="***"><br>
+		
+		<hr>
+		
+		날짜 : <input type="date"><br>
+		날짜&시간 :<input type="datetime"><br>
+		월 : <input type="month"><br>
+		시간 : <input type="time"><br>
+		주 : <input type="week"><br>
+		색상 : <input type="color"><br>
+		이메일 : <input type="email"><br>
+		전화번호 : <input type="tel"><br>
+		범위 : <input type="range"><br>
+		[숫자]신발사이즈 : 
+		<input type="number" min="230" max="300" step="10" value="260"><br>
+		URL : <input type="url"><br>
+		
+		<hr>
+		
+		<button type="button" onclick="alert('저장버튼을 눌렀네요');">저장버튼</button>
+		<button type="submit">전송버튼</button>
+		<button type="reset" onclick="alert('초기화되었습니다.');">초기화버튼</button><br>
+		
+		<hr>
+		
+		비고<br><textarea rows="10" cols="100" name="etc"></textarea>
+		
+		<hr>
+		
+		자동차 브랜드 : 
+		<select name="car">
+			<option value="C">쉐보레</option>
+			<option value="H" selected>현대</option>
+			<option value="K">기아</option>
+			<option value="BMW">BMW</option>
+			<option value="AUDI">AUDI</option>
+		</select>
+
+		<hr>
+		
+		
+	</form>
+</body>
+</html>

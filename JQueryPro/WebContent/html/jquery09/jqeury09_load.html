@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<style type="text/css">
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td {
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<!-- 목록영역 -->
+	<div>
+		<table>
+			<tr>
+				<td>홍길동</td>
+				<td>남자</td>
+			</tr>
+			<tr>
+				<td>아이유</td>
+				<td>여자</td>
+			</tr>
+		</table>
+	</div><br>
+	
+	<!-- 상세정보 영역 -->
+	<div id="detail">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	// 테이블의 행을 클릭했을때 상세정보영역에 상세화면이 나오도록 함
+	$("tr").click(function(){
+		$("#detail").load("jqeury09_load_detail.html");
+	});
+</script>
+</html>

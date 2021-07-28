@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<input type="text" id="target" name="userName">
+		<button type="button" onclick="proc()">제출</button>
+		<br><hr><br>
+		<div>무궁화 꽃이 피었습니다.</div>
+		<br>
+		<button type="button" onclick="get()">내용 가져오기</button>
+		<button type="button" onclick="set('오냐')">내용 바꾸기</button>
+		
+		<hr>
+		<img alt="커피" src="../../images/Santorini.jpg" width="300px" id="image1">
+		<br>
+		<button type="button" onclick="changeImage()">이미지 바꾸기</button>
+		
+		<hr>
+		<p id="p1" style="border: 1px solid black;">
+			동해물과 백두산이 마르고 닳도록
+		</p>
+		<br>
+		<button type="button" onclick="changeStyle()">스타일 변경</button>
+		<button type="reset">초기화</button>
+	</form>
+	<script type="text/javascript">
+		function proc() {
+			var obj = document.getElementById("target");
+			
+			alert(obj);
+			alert(obj.value);
+		}
+		function get() {
+// 			document.getElementByTagName("div"); // 배열로 반환
+			var obj = document.getElementsByTagName("div")[0]; // div 반환
+			alert(obj.innerHTML);
+		}
+		function set(param) {
+			document.getElementsByTagName("div")[0].innerHTML = param;		
+		}
+		function changeImage() {
+			document.getElementById("image1").src = "../../images/hong.jfif";
+		}
+		function changeStyle() {
+			document.getElementById("p1").style.color = "red";
+			document.getElementById("p1").style.border = "3px solid blue";
+			document.getElementById("p1").style.fontStyle = "italic";
+		}
+	</script>
+</body>
+</html>

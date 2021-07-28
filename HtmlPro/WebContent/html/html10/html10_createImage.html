@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>연습</title>
+	<script type="text/javascript">
+		function addImg(obj, idx) {
+			var arr = document.getElementsByTagName("li");
+			
+			var arrImgs = document.getElementsByTagName("img");
+			for (var i = 0; i < arrImgs.length; i++) {
+				arrImgs[i].remove();
+			}
+			
+			var imgSrc = ["coffee1.jpg", "dora.jpg", "flowers.jpg"
+				, "lion.jpg", "Santorini.jpg"];
+			
+			var imgObj = document.createElement('img');
+			imgObj.src = "../../images/" + imgSrc[idx - 1];
+			imgObj.height = "50";	
+			obj.appendChild(imgObj);
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li onclick="addImg(this, 1)">컴퓨터</li>
+		<li onclick="addImg(this, 2)">식품</li>
+		<li onclick="addImg(this, 3)">호랑이</li>
+		<li onclick="addImg(this, 4)">cloud</li>
+		<li onclick="addImg(this, 5)">coffee</li>
+	</ul>
+</body>
+</html>

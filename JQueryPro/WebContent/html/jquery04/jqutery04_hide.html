@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<style type="text/css">
+		div > div {
+			border: 3px dotted red;
+			position: relative;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnHide").click(function(){
+				$("p", "#ex1").hide();
+			});
+			
+			$("#btnShow").click(function(){
+				$("p", "#ex1").show();
+			});
+			
+			$("#btnToggle").click(function(){
+				$("div", "#ex1").toggle();
+			});
+			
+			////////////////////////////////////
+			
+			$("#btnFadeIn").click(function(){
+				$("p", "#ex2").fadeIn(1000);
+			});
+			
+			$("#btnFadeOut").click(function(){
+				$("p", "#ex2").fadeOut("slow");
+			});
+			
+			$("#btnFadeToggle").click(function(){
+				$("div", "#ex2").fadeToggle("speed", 0.6);
+			});
+			
+			$("#btnFadeTo").click(function(){
+				$("div", "#ex2").fadeTo(2000, 0.3);
+			});
+			
+			////////////////////////////////////////
+			
+			$("#btnSlideUp").click(function(){
+				$("p", "#ex3").slideUp();
+			});
+			
+			$("#btnSlideDown").click(function(){
+				$("p", "#ex3").slideDown();
+			});
+			
+			$("#btnSlideToggle").click(function(){
+				$("div", "#ex3").slideToggle();
+			});
+			
+			////////////////////////////////////////
+			$("#btnAni").click(function(){
+				$("#tmp").animate({left : '300px'});
+				// ==> $("#tmp")의 포지션이 static이면 안됨
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="ex1">
+		<p>이 영역은 버튼을 누르면 사라졌다가 다시  나타납니다.</p>
+		<button type="button" id="btnHide">hide</button>
+		<button type="button" id="btnShow">show</button><br><br>
+		<button type="button" id="btnToggle">토글버튼</button><br><br>
+		<div>
+			안녕하십니까?
+			<br>
+			안녕히 가십시오.
+		</div>
+	</div>
+	<hr>
+	<div id="ex2">
+		<p>이 영역은 버튼을 누르면 사라졌다가 다시  나타납니다.</p>
+		<button type="button" id="btnFadeIn">FadeIn</button>
+		<button type="button" id="btnFadeOut">FadeOut</button><br><br>
+		<button type="button" id="btnFadeToggle">FadeToggle</button><br><br>
+		<button type="button" id="btnFadeTo">FadeTo</button><br><br>
+		<div>
+			안녕하십니까?
+			<br>
+			안녕히 가십시오.
+		</div>
+	</div>
+	<hr>
+	<div id="ex3">
+		<p>이 영역은 버튼을 누르면 사라졌다가 다시  나타납니다.</p>
+		<button type="button" id="btnSlideUp">SlideUp</button>
+		<button type="button" id="btnSlideDown">SlideDown</button><br><br>
+		<button type="button" id="btnSlideToggle">SlideToggle</button><br><br>
+		<div>
+			안녕하십니까?
+			<br>
+			안녕히 가십시오.
+		</div>
+	</div>
+	<hr>
+	<div id="ex4">
+		<button type="button" id="btnAni">Animate</button><br><br>
+		<div id="tmp">
+			안녕하십니까?
+			<br>
+			안녕히 가십시오.
+		</div>
+	</div>
+</body>
+</html>

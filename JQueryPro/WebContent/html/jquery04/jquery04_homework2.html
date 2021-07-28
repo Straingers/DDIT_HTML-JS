@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>예제3</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<style type="text/css">
+		img {
+			height: 200px;
+		}
+	</style>
+	<script type="text/javascript">
+		// 목록을 누르면 현재 이미지가 사라지고(slideUp, fadeOut, hide)
+		// 목록에 해당하는 새로운 이미지가 나타난다.(slideDown, fadeIn, show)
+		$(document).ready(function(){
+			$("#jqu").click(function(e){
+				$("img").slideUp(function(){
+					$("img").attr("src", $("#jqu").attr("href"));
+					$("img").slideDown();
+				});
+				e.preventDefault();
+			});
+			
+			$("#jsp").click(function(e){
+				$("img").fadeOut(function(){
+					$("img").attr("src", $("#jsp").attr("href"));
+					$("img").fadeIn();
+				});
+				e.preventDefault();
+			});
+			
+			$("#uml").click(function(e){
+				$("img").hide();
+				$("img").attr("src", $("#uml").attr("href"));
+				$("img").show();
+				e.preventDefault();
+			});
+			
+			$("img").click(function(){
+				$("img").attr("src", "../../images/sky.jpg");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<h2>교재목록</h2>
+		<br>
+		<ul>
+			<li>
+				<a id="jqu" href="../../images/jquery.jpg">
+					jQuery교재
+				</a>
+			</li><br>
+			<li>
+				<a id="jsp" href="../../images/jsp.jpg">
+					JSP교재
+				</a>
+			</li><br>
+			<li>
+				<a id="uml" href="../../images/uml.jpg">
+					UML교재
+				</a>
+			</li>
+		</ul>
+		<br><br>
+		<hr color="red">
+		<br><br>
+		<img alt="사진" src="../../images/sky.jpg">
+	</div>
+</body>
+</html>

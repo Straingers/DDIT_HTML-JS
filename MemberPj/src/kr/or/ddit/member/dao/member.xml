@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="member">
+	
+	<insert id="createMember" parameterClass="kr.or.ddit.member.vo.MemberVO">
+		INSERT INTO TB_MEMBER (
+			MEM_ID
+			, MEM_NAME
+			, MEM_BIR
+			, MEM_PASS
+			, MEM_HP
+			, MEM_MAIL
+			, MEM_ZIP
+			, MEM_ADD1
+			, MEM_ADD2
+		)
+		VALUES (
+			  #memId#
+			, #memName#
+			, #memBir#
+			, #memPass#
+			, #memHp#
+			, #memMail#
+			, #memZip#
+			, #memAdd1#
+			, #memAdd2#
+		)
+	</insert>
+	
+	<select id="retrieveMember" parameterClass="String" resultClass="kr.or.ddit.member.vo.MemberVO">
+		SELECT MEM_ID                memId             
+             , MEM_NAME              memName           
+             , TO_CHAR(MEM_BIR, 'YYYY-MM-DD') memBir            
+             , MEM_PASS              memPass           
+             , MEM_HP                memHp             
+             , MEM_MAIL              memMail           
+             , MEM_ZIP               memZip            
+             , MEM_ADD1              memAdd1           
+             , MEM_ADD2              memAdd2           
+		FROM   TB_MEMBER
+		WHERE  1=1
+		AND    MEM_ID = #memId#
+	</select>
+	
+</sqlMap>

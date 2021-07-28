@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>연습2</title>
+</head>
+<body>
+	<h2>[switch 문제] 점수를 입력받아 학점을 출력하시오</h2>
+	<script type="text/javascript">
+		while(true){
+			var grade = prompt("점수를 입력해주세요", "0 ~ 100");
+			if(grade < 101){
+				switch (true) {
+					case (grade >= 90):
+						document.write("A");				
+						break;
+					case (grade >= 80):
+						document.write("B");				
+						break;
+					case (grade >= 70): 
+						document.write("C");				
+						break;
+					case (grade >= 60):
+						document.write("C");				
+						break;
+					case (grade < 60):
+						document.write("F");				
+						break;
+				}
+				break;
+			}else {
+				alert("잘못입력하였습니다.")
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		var score = prompt("점수를 입력해주세요", "0 ~ 100");
+		var grade;
+		score = parseInt(score);
+		
+		switch (score / 10) {
+			case 10: case: 9
+				grade = "A";	
+				break;
+			case 8:
+				grade = "B";
+				break;
+			case 7:
+				grade = "C";
+				break;
+			case 6:
+				grade = "D";
+				break;
+			default:
+				grade = "F";
+				break;
+		}
+		document.write("당신의 학점은 " + grade + "입니다.");
+	</script>
+</body>
+</html>

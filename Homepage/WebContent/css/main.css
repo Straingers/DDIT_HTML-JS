@@ -1,0 +1,135 @@
+@charset "UTF-8";
+* {
+	margin: 0px; 
+	padding: 0px;
+}
+body {
+	padding: 0px 10px;
+	background-color: #F2F2F2;
+}
+button {
+	width: 60px;
+	height: 25px;
+}
+header {
+	min-width: 1000px;
+	margin-top: 10px;
+	border-radius: 30px;
+	width: 100%;
+	line-height: 70px;
+	background-color: #BDBDBD;
+	text-align: center;
+}
+header a {
+	text-decoration: none;
+}
+header a:visited {
+	color: black;
+}
+header h1 {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+nav {
+	background-color: #585858;
+	border-radius: 30px;
+	width: 100%;
+	height:auto;
+	min-width: 1000px;
+	line-height: 40px;
+	text-align: center;
+}
+nav ul {
+	list-style: none;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+nav li {
+	display: inline;
+	letter-spacing: 4px;
+	padding: 10px;
+	margin: 10px;
+	color: white;
+}
+nav a {
+	text-decoration: none;
+}
+nav a:before {
+	color: white;	
+}
+nav a:visited {
+	color: white;
+}
+nav a:hover {
+	color: black;
+	text-decoration: underline;
+}
+#body {
+	min-width: 1000px;
+	left: 100px;
+}
+#asideLeft {
+	background-color: #BDBDBD;
+	float: left;
+	border-radius: 30px;
+	width: calc(12% - 32px);
+	height: 800px;
+	margin-right: 1em;
+}
+#asideLeft h3 {
+	padding: 20px 10px;
+}
+#asideLeft ul{
+	list-style: none;	
+}
+#asideLeft ul li{
+	background-color: #585858;
+	padding: 10px 15px;
+	border-bottom: 1px solid #E6E6E6;
+}
+#asideLeft ul a {
+	text-decoration: none;
+	color: white;
+}
+#asideLeft a:before {
+	color: white;	
+}
+#asideLeft a:visited {
+	color: white;
+}
+#asideLeft a:hover {
+	color: black;
+}
+iframe {
+	border: none;
+	height: 800px;
+	width: 73%;
+	float: left;
+}
+#frameSide {
+	width: 100%;
+}
+#asideRight {
+	float: right;
+	background-color: #BDBDBD;
+	border-radius: 30px;
+	width: 15%;
+	height: 800px;
+	margin-bottom: 10px;
+}
+#asideRight #shopcart{
+	margin-bottom: 50px;
+}
+#asideRight div {
+	padding: 10px 10px;
+}
+footer {
+	min-width: 1000px;
+	clear: both;
+	border-radius: 30px;
+	background-color: #BDBDBD;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	margin-bottom: 10px;
+}

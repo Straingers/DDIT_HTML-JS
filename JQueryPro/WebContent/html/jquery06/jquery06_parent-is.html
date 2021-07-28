@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div {
+			border: 2px solid orange;
+		}
+	</style>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// p태그를 클릭하면 부모가 div인지 판단하여,
+			// 맞다면 p태그를 복사후 글자색을 빨강색으로 설정한 뒤 부모에 붙여넣는다.
+			$("p").click(function(){
+				if($(this).parent().is("div")){
+					var copy = $(this).clone().css("color", "red");
+					$(this).parent().append(copy);
+				} else {
+					alert("작업대상이 아닙니다.");
+				}
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<p>무궁화 꽃이 피었습니다.</p>
+	</div>
+	<p>은주는 예쁘다~</p>
+	<div>
+		<p>사뿐히 즈려밟고 가시옵소서.</p>
+	</div>
+	
+</body>
+</html>

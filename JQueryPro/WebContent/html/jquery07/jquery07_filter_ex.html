@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#hidden", "#ex1").click(function(){
+				alert($("p:hidden").html());
+			});
+			$("#visible", "#ex1").click(function(){
+				$("p:visible").each(function(){
+					alert($(this).html());
+				})
+			});
+			
+			////////////////////////////////////////////
+			
+			$("#hidden", "#ex2").click(function(){
+				var str = "";
+				$(":hidden", "#ex2").each(function(){
+					str += "태그명 : " + $(this).prop("tagName")
+							+ " / 유형 : " + this.type
+							+ " / 값 : " + this.value
+							+ " / html : " + $(this).html() + "\n";
+				})
+				alert(str);
+			});
+			$("#visible", "#ex2").click(function(){
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="ex1">
+		<hr>
+		<p>보이는 문단</p>
+		<p style="visibility: hidden;">숨겨진 문단</p>
+		<p style="display: none;">자리를 차지 하지 못한 문단</p>
+		<p style="opacity: 0">투명한 문단</p>
+		<br>
+		<button id="hidden">hidden요소</button>
+		<button id="visible">visible요소</button>
+	</div>
+	<br><hr color="red"><br>
+	<div id="ex2">
+		<form>
+			I D : 
+			<input type="text">
+			<span style="display: none;">중복된 ID입니다.</span><br>
+			이름 : 
+			<input type="text">
+			<span style="display: none;">이름을 입력하세요</span><br>
+			성별 : 
+			<input type="radio" name="gender" id="male" value="남자">
+			<label for="male">남자</label>
+			<input type="radio" name="gender" id="female" value="여자">
+			<label for="female">여자</label><br>
+			<button id="hidden">hidden요소</button>
+			<button id="visible">visible요소</button>
+			<input type="hidden" id="userAge" name="userAge" value="28">
+		</form>
+	</div>
+</body>
+</html>

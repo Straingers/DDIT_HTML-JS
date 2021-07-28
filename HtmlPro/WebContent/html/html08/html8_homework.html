@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>문제</title>
+</head>
+<body>
+	<h3>1. 1부터 10까지 합을 구하는 프로그램을 작성하시오.</h3>
+	<script type="text/javascript">
+		var cnt = 0;
+		for (var i = 1; i < 11; i++) {
+			cnt += i;
+		}
+		document.write("1부터 10까지의 합 : " + cnt);
+	</script>
+	
+	<br>
+	
+	<h3>2. 1부터 200까지의 짝수의 합을 구하는 프로그램을 작성하시오.(continue를 이용)</h3>
+	<script type="text/javascript">
+		var cnt = 0;
+		var x = 0;
+		while(x < 201) {
+			x++;
+			if (x % 2 != 0) {
+				continue;
+			} else {
+				cnt += parseInt(x);
+			}
+		}
+		document.write("1~200사이의 짝수 합 : " + cnt);
+	</script>
+	
+	<br>
+	
+	<h3>3. 사용자가 입력한 값을 계속 더하고, 사용자가 0을 입력하면 그때까지 누적된 값을 출력하는 프로그램을 작성하시오</h3>
+	<button type="button" onclick="num3();">시작</button>
+	<script type="text/javascript">
+		function num3(){
+			var sumNum = 0;
+			while(true) {
+				var num = prompt("숫자를 입력하세요", "숫자만");
+				sumNum += parseInt(num);
+				if(num == 0) {
+					document.write("총 합  : " + sumNum);
+					break;
+				}
+			}
+		}	
+	</script>
+	
+	<br>
+	
+	<h3>4. 다중 for문을 이용해서 1 ~ 10까지 중 i와 k의 더한 합이 3의 배수일때만 출력 (continue를 이용)</h3>
+	<script type="text/javascript">
+		document.write("[");
+		for (var i = 1; i < 11; i++) {
+			for (var k = 1; k < 11; k++) {
+				if ((i + k) % 3 != 0){
+					continue;
+				}
+				document.write(i + k + " ");
+			} 
+		}
+		document.write("]");
+	</script>
+	
+	<br>
+	
+	<h3>5. 1~100까지 중 2의 배수이면서 3의 배수인것만 출력</h3>
+	<script type="text/javascript">
+		var x = 1;
+		document.write("[");
+		while(x < 101){
+			x++;
+			if(x % 2 == 0 && x % 3 == 0){
+				document.write(x + " ");
+			}
+		}
+		document.write("]");
+	</script>
+	
+	<br>
+	
+	<h3>6. 두 수를 입력(prompt) 두 수의 합이 100이상 일때만 출력 (continue를 이용, 두 수 모두
+			0이 입력되면 종료)</h3>
+	<button type="button" onclick="num6();">시작</button>
+	<script type="text/javascript">
+		function num6(){
+			while(true){
+				var numSum = 0
+				var num1 = prompt("첫번째 숫자를 입력하세요", "숫자만");
+				var num2 = prompt("두번째 숫자를 입력하세요", "숫자만");
+				if (num1 == 0 && num2 == 0){
+					break;
+				} else {
+					numSum = parseInt(num1) + parseInt(num2);
+					if (numSum < 100){
+						sumSum = 0;
+						continue;
+					} else {
+						document.write(numSum);
+						break;
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

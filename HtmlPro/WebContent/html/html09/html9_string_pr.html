@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>예제</title>
+	<script type="text/javascript">
+	/* 주민등록번호를 입력받아 생년월일과 성별을 출력한다.*/
+		function proc() {
+			var jumin = document.getElementById("jumin").value;
+			var arr = jumin.split("-");
+	
+			var gender;	
+			
+			if(arr[0].substr(0, 2) < 21) {
+				if(arr[1].substr(0, 1) == 3 || arr[1].substr(0, 1) == 4){
+					document.getElementById("spYear").innerHTML = "20"+ arr[0].substr(0, 2) + "년";
+				} else {
+					document.getElementById("spYear").innerHTML = "19"+ arr[0].substr(0, 2) + "년";
+				}
+			} else {
+				document.getElementById("spYear").innerHTML = "19"+ arr[0].substr(0, 2) + "년";
+			}
+			document.getElementById("spMonth").innerHTML = arr[0].substr(2, 2) + "월";
+			document.getElementById("spDay").innerHTML = arr[0].substr(4, 2) + "일";
+					
+			if (arr[1].substr(0, 1) == 1 || arr[1].substr(0, 1) == 3) {
+				gender = "남자";
+			} else if (arr[1].substr(0, 1) == 2 || arr[1].substr(0, 1) == 4){
+				gender = "여자";
+			} else {
+				gender = "알수없음";
+			}
+			document.getElementById("spGender").innerHTML = gender;
+		}
+		
+		function proc1() {
+			var id = document.getElementById("jumin").value;
+			
+			var year = id.substr(0, 2);
+			var month = id.substr(2, 2);
+			var day = id.substr(4, 2);
+			var gender = id.substr(7, 1);
+			
+			if(gender == 1 || gender == 3) {
+				gender = "남자";
+			} else if (gender == 2 || gender == 4){
+				gender = "여자";
+			}
+			
+			document.getElementById("spYear").innerHTML = gender;
+			document.getElementById("spMonth").innerHTML = gender;
+			document.getElementById("spDay").innerHTML = gender;
+			document.getElementById("spGender").innerHTML = gender;
+		}
+		
+		function proc2() {
+			//  ABCDEF-GHIJKLM
+			// 1. A*2 + B*3 + ... + I*2 + ... + L*5의 총 합을 구한다
+			// 2. 1의 합을 11로 나눈 나머지를 구한다
+			// 3. 11에서 2의 결과를 뺀다.
+			// 4. 3번의 결과가 0~9면 값 그대로, 10이면 0, 11이면 1
+			// 5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다.
+			
+			var sum = 0;
+			var value = document.getElementById("jumin2").value;
+			var jumin = value.substr(0, 6) + value.substr(7, 7);
+			var tmp = [2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5];
+			
+			for (var i = 0; i < tmp.length; i++) {
+				sum += jumin.substr(i, 1) * (tmp[i]);
+			}
+			
+			var result = 11 - (sum % 11);
+			if(result == 10){
+				result = 0;
+			} else if (result == 11){
+				result = 1;
+			} 
+			if(result == jumin.substr(-1, 1)) {
+				alert("유효성 검사 통과");
+			} else {
+				alert("유효성 검사 실패");
+			}
+		}
+	</script>
+</head>
+<body>
+	주민등록번호 : <input type="text" id="jumin">
+	<button type="button" onclick="proc()">확인</button>
+	<hr>
+	연도 : <span id="spYear"></span><br>
+	월 : <span id="spMonth"></span><br>
+	일 : <span id="spDay"></span><br>
+	성별 : <span id="spGender"></span><br>
+	<hr><hr>
+	<h3>주민등록번호 유효성 검사</h3>
+	주민등록번호 : <input type="text" id="jumin2">
+	<button type="button" onclick="proc2()">확인</button>
+</body>
+</html>

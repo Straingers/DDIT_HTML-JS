@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<style>
+		#search {
+			border: 1px solid;
+			padding: 15px;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th {
+			background-color: lightgray;
+		}
+		th, td {
+			border: 1px solid;
+			padding: 10px;
+		}
+		.tab { 
+			white-space: pre; 
+		}
+	</style>
+	<script type="text/javascript" src="../../js/member/memberlist.js?v=1"></script>
+	<script type="text/javascript" src="../../js/common/myUtil.js?v=1"></script>
+</head>
+<body>
+	<!-- 검색 조건 영역 -->
+	<h3>검색조건</h3>
+	<div id="search">
+		<form>
+			ID : <input type="text" id="userId"><span class="tab">&#9;</span><span class="tab">&#9;</span> 
+			이름 : <input type="text" id="userName"><span class="tab">&#9;</span>
+			<button type="button" id="btnSearch">조회</button>
+			<button type="reset">초기화</button>
+		</form>
+	</div><br>
+	
+	<!-- 검색 결과 영역 -->
+	<h3>회원목록</h3>
+	<div id="result">
+		<table id="tbResult">
+			<colgroup>
+				<col style="width: 100px;">
+				<col style="width: auto;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>ID</th>
+					<th>이름</th>
+					<th>비밀번호</th>
+					<th>전화번호</th>
+					<th>생년월일</th>
+					<th>메일</th>
+					<th>직업</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="8" align="center">조회 버튼을 클릭하세요.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div><br>
+	
+	<!--버튼 영역 -->
+	<div>
+		<button type="button" id="btnCreate">신규등록</button>
+	</div>
+</body>
+</html>

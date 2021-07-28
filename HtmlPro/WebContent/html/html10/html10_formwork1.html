@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>form 문제3</title>
+	<style type="text/css">
+		button {
+  			width: 40px; 
+		}
+		.button {
+			text-align: center;
+			width: 10%;
+			float: left;
+			display: table;
+			height: 300px;
+		}
+		.buttonIn {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		#leftBox {
+			float: left;
+			border: 1px solid black;
+			width: calc(45% - 2px);
+			height: 300px;
+		}
+		#rightBox {
+			border: 1px solid black;
+			width: calc(45% - 2px);
+			float: left;
+			height: 300px;
+			margin-bottom: 30px;
+		}
+		#inputbox {
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function addNum() {
+			var num = document.getElementById("getNum").value;
+			if(num == "" || num == null){
+				alert("입력이 되지 않았습니다.");
+				return;
+			}
+			var leftVal = document.getElementById("leftBox").children;
+			var rightVal = document.getElementById("rightBox").children;
+			for (var i = 0; i < leftVal.length; i++) {
+				if(leftVal[i].value == num){
+					alert(num + "은(는) 이미 등록된 값입니다.\n다시 입력해주세요.");
+					document.getElementById("getNum").value = "";
+					// 입력란으로 포커스 주기
+					document.getElementById("getNum").focus() = "";
+					return;
+				}
+			}
+			for (var i = 0; i < rightVal.length; i++) {
+				if(rightVal[i].value == num){
+					alert(num + "은(는) 이미 등록된 값입니다.\n다시 입력해주세요.");
+					document.getElementById("getNum").value = "";
+					// 입력란으로 포커스 주기
+					document.getElementById("getNum").focus() = "";
+					return;
+				}
+			}
+			var newOption = document.createElement("option");
+			newOption.innerHTML = num;
+			document.getElementById("leftBox").appendChild(newOption);
+			document.getElementById("getNum").value = "";
+			// 입력란으로 포커스 주기
+			document.getElementById("getNum").focus() = "";
+		}
+		function move(before, after) {
+			var ele = document.getElementById(before).children;
+// 			var eleArr = [];
+// 			for (var i = ele.length - 1; i >= 0; i--) {
+// 				if(ele[i].selected == true){
+// 					eleArr.unshift(ele[i]); // 배열 추가시 배열의 맨앞부터 추가
+// 				}
+// 			}
+// 			for (var i = 0; i < eleArr.length; i++) {
+// 				document.getElementById(after).appendChild(eleArr[i]);
+// 			}
+			for(var i = 0; i < ele.length; i++) {
+				if((ele[i].selected)) {
+					document.getElementById(after).append(ele[i]);
+					i--;
+				}
+			}
+		}
+		function moveAll(before, after) {
+			var ele = document.getElementById(before).children;
+// 			var eleArr = [];
+// 			for(var i = ele.length - 1; i >= 0; i--) {
+// 				eleArr.unshift(ele[i]); // 배열 추가시 배열의 맨앞부터 추가
+// 			}
+// 			for (var i = 0; i < eleArr.length; i++) {
+// 				document.getElementById(after).appendChild(eleArr[i]);
+// 			}
+			for(var i = 0; i < ele.length; i++) {
+				document.getElementById(after).append(ele[i]);
+				i--;
+			}
+		}
+	</script>
+</head>
+<body>
+		<h1 style="text-align: center">select객체 예제</h1>
+		<select multiple="multiple" id="leftBox">
+		</select>
+		<div class="button">
+			<div class="buttonIn">
+				<button onclick="move('leftBox', 'rightBox')">&gt;</button><br>
+				<button onclick="moveAll('leftBox', 'rightBox')">&gt;&gt;</button><br>
+				<button onclick="move('rightBox', 'leftBox')">&lt;</button><br>	
+				<button onclick="moveAll('rightBox', 'leftBox')">&lt;&lt;</button><br>
+			</div>
+		</div>
+		<select multiple="multiple" id="rightBox">
+		</select>
+		<div id="inputbox">
+			<input type="text" id="getNum" style="width: 200px;">
+			<button type="button" onclick="addNum()" style="width: 80px;">
+				추가하기
+			</button>
+		</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		table {
+			width: 80%;
+			text-align: center;
+		}
+	</style>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 첫번째 li에 노란색 넣기
+			$("li").first().css("background-color", "yellow")
+			// 각리스트의 첫번재 li에 빨간색 테두리 넣기
+			$("ol li:first-child").css("border", "2px solid red")
+			// 마지막 li에 초록색 배경넣기
+			$("li").last().css("background-color", "lightgreen");
+			// 각리스트의 마지막 li에 파란색 점선 테두리 넣기
+			$("li:last-child").css("border", "2px dotted blue");
+			
+			/////////////////////////////////////////////
+			
+			// 테이블의 0, 3, 6번째 td 색상 짙은 회색
+			$("td:nth-child(3n)").css("background-color", "#F2F2F2");
+			// 테이블의 1, 4, 7번째 td색상 회색
+			$("td:nth-child(3n + 1)").css("background-color", "gray");
+			// 테이블의 2, 5, 8번째 td색상 밝은 회색
+			$("td:nth-child(3n + 2)").css("background-color", "lightgray");
+			
+			$("tr:first-child td").css({
+				"background-color" : "black"
+				, "color" : "white"
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		여자들에게 인기있는 남자들
+		<ol>
+			<li>능력있는 남자</li>
+			<li>돈 많은 남자</li>
+			<li>잘생긴 남자</li>
+			<li>프로그래머</li>
+		</ol>
+	</div>
+	<div>
+		남자들에게 인기있는 여자들
+		<ol>
+			<li>예쁜 여자</li>
+			<li>귀여운 여자</li>
+			<li>프로그래머</li>
+		</ol>
+	</div>
+	<hr>
+	<table>
+		<tr>
+			<td>이름</td>
+			<td>주소</td>
+			<td>전화번호</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>대전</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr>
+			<td>진달래</td>
+			<td>서울</td>
+			<td>010-2222-2222</td>
+		</tr>
+		<tr>
+			<td>개나리</td>
+			<td>부산</td>
+			<td>010-3333-3333</td>
+		</tr>
+		<tr>
+			<td>무궁화</td>
+			<td>대구</td>
+			<td>010-4444-4444</td>
+		</tr>
+	</table>
+</body>
+</html>

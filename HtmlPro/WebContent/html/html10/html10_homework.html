@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>html 과제</title>
+	<script type="text/javascript">
+		function proc2() {
+			//  ABCDEF-GHIJKLM
+			// 1. A*2 + B*3 + ... + I*2 + ... + L*5의 총 합을 구한다
+			// 2. 1의 합을 11로 나눈 나머지를 구한다
+			// 3. 11에서 2의 결과를 뺀다.
+			// 4. 3번의 결과가 0~9면 값 그대로, 10이면 0, 11이면 1
+			// 5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다.
+			var sum = 0;
+			var value = document.getElementById("jumin2").value;
+			value = value.replace("-", "");
+// 			var jumin = value.substr(0, 6) + value.substr(7, 7);
+			var tmp = [2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5];
+			
+			for (var i = 0; i < tmp.length; i++) {
+				sum += value.substr(i, 1) * (tmp[i]);
+			}
+			
+			var result = 11 - (sum % 11);
+			if(result == 10){
+				result = 0;
+			} else if (result == 11){
+				result = 1;
+			} 
+// 			if(result == jumin.substr(-1, 1)) {
+			if(result == value.substr(-1, 1)) {
+				alert("유효성 검사 통과");
+			} else {
+				alert("유효성 검사 실패");
+			}
+		}
+	
+		function lotto(){
+				var nums = [];
+				while(nums.length < 6){
+					var num = parseInt(Math.random() * 45 + 1);
+					if(nums.indexOf(num) == -1){
+			 			nums.push(num);
+					}
+				}
+				console.log(nums);
+				nums.sort(function(a, b) {
+// 				    if(a > b) return 1;
+// 				    if(a === b) return 0;
+// 				    if(a < b) return -1;
+					console.log(a);
+					console.log(b);
+					return a - b;
+		        });
+				document.getElementById("num").innerHTML = nums;
+		}
+		function proc3() {
+			var arr = ["가위", "바위", "보"];
+			var user = document.getElementById("rsp").value;
+			var userIdx = arr.indexOf(user);
+			
+			var comIdx = Math.floor(Math.random() * 3);
+			var com = arr[comIdx];
+			
+			if (userIdx == comIdx){
+				alert("사용자 : "+ user + "\n상대 : " + com + "\n결과 : 비겼습니다.");
+			} else if (userIdx > comIdx){
+				if(comIdx == 0 && userIdx == 2){
+					alert("사용자 : "+ user + "\n상대 : " + com + "\n결과 : 패배하였습니다.");
+				} else {
+					alert("사용자 : " + user + "\n상대 : " + com + "\n결과 : 승리하였습니다.");
+				}
+			} else if (userIdx < comIdx){
+				if(comIdx == 2 && userIdx == 0){
+					alert("사용자 : "+ user + "\n상대 : " + com + "\n결과 : 승리하였습니다.");
+				} else {
+					alert("사용자 : "+ user + "\n상대 : " + com + "\n결과 : 패배하였습니다.");
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h3>주민등록번호 유효성 검사</h3>
+	주민등록번호 : <input type="text" id="jumin2">
+	<button type="button" onclick="proc2()">확인</button>
+
+	<hr>
+	
+	<h3>로또 번호 생성</h3>
+	<button type="button" onclick="lotto()">번호 생성</button><br><br>
+	<span id="num"></span>
+	
+	<hr>
+	
+	<h3>가위 바위 보</h3>
+	<input type="text" id="rsp">
+	<button type="button" onclick="proc3()">입력</button>
+</body>
+</html>

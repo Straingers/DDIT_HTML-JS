@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var ogSrc;
+			var cnt = 0;
+			$("img").on({
+				mouseover : function(e){
+					ogSrc = e.target.src
+// 					e.target.src = "../../images/" + srcArr[(parseInt)(Math.random() * 4)];
+					if(ogSrc.substr(-8, 4) == "lion"){
+						e.target.src = "../../images/tiger.jfif";
+					} else if(ogSrc.substr(-7, 3) == "bob"){
+						e.target.src = "../../images/Santorini.jpg";
+					} else {
+						e.target.src = "../../images/coffee1.jpg";
+					}
+				}
+				, mouseout : function(e){
+					e.target.src = ogSrc
+				}
+				, dblclick : function(){
+					$(this).css("display", "none");
+					cnt++;
+					if($("img").length == cnt){
+						$("button").css("display", "inline");
+						cnt = 0;
+					}
+				}
+			})
+			$("button").click(function(){
+				$("img").css("display", "inline");
+	 			$("button").css("display", "none");
+			})
+			
+			$("a").click(function(e){
+				// 실행 금지 하기
+				// case 1) event 객체의 e.preventDefault() 메서드 호출
+				e.preventDefault();
+			
+				// case 2) false 리턴
+				// return false
+			});
+		});
+	</script>
+</head>
+<body>
+	<img alt="사진" src="../../images/lion.jpg" width="200px" height="200px;">
+	<img alt="사진2" src="../../images/spongebob.png" width="200px" height="200px;">
+	<img alt="사진3" src="../../images/flowers.jpg" width="200px" height="200px;">
+	<br>
+	<button type="button" style="display: none">보이기</button>
+	<hr>
+	<a href="http://www.naver.com" target="_blank">네이버로 이동</a>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#all").click(function(){
+				// '전체선택' 체크박스가 체크 되어 있을때
+				if($(this).prop("checked")){
+					$(":checkbox").prop("checked", true);
+				} 
+				// '전체선택' 체크박스가 체크가 되어있지 않을때
+				else if($(this).prop("checked", false)){
+					$(":checkbox").prop("checked", false);
+				}
+			});
+			
+			// 체크박스가 전부 체크되어있으면 '전체선택' 체크
+			// 체크박스에 하나라도 체크되어있지 않으면 '전체선택' 체크해제
+			$(":checkbox").click(function(){
+				if($("[name=num]").not(":checked").length == 0) {
+					$("#all").prop("checked", true);
+				} else if ($("[name=num]").not(":checked").length > 0){
+					$("#all").prop("checked", false);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	체크박스(전체선택/해제):<br><br>
+	<input type="checkbox" id="all">
+	<label for="all">전체선택</label>
+	&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" id="1" name="num">
+	<label for="1">1</label>
+	<input type="checkbox" id="2" name="num">
+	<label for="2">2</label>
+	<input type="checkbox" id="3" name="num">
+	<label for="3">3</label>
+	<input type="checkbox" id="4" name="num">
+	<label for="4">4</label>
+	<input type="checkbox" id="5" name="num">
+	<label for="5">5</label>
+</body>
+</html>

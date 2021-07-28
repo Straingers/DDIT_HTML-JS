@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>request</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnGetA").click(function(){
+				// XMLHttpRequest 객체로 호출하기
+				// 1) XMPHttpRequest 객체 생성하기
+				var xhttp = new XMLHttpRequest();
+				// 2) 서버(, 페이지 등) 연결하기 - open(method, url, async)
+				var url = "html1.html";
+				xhttp.open("GET", url, true);
+				// 3) 서버(, 페이지 등) 전송하기 - send()
+				xhttp.send();
+				// 4) 결과처리하기
+				xhttp.onreadystatechange = function(){
+					if(this.readyState == 4 // 요청이 처리 완료됨(데이터 받음) 상태
+						&& this.status == 200) // 서버에서 요청 처리가 성공인 상태
+					{
+						// 정상 처리 되었을때 화면 처리 할 내용
+						console.log(this.responseText);
+						$("#divResult").html(this.responseText);				
+					}
+				};
+			});
+			$("#btnGetS").click(function(){
+				// XMLHttpRequest 객체로 호출하기
+				// 1) XMPHttpRequest 객체 생성하기
+				var xhttp = new XMLHttpRequest();
+				// 2) 서버(, 페이지 등) 연결하기 - open(method, url, async)
+				var url = "jquery07_formfilter.html";
+				xhttp.open("GET", url, false); // <== 동기식 호출로 변경!!
+				// 동기식 호출에서는 결과가 와야지 send가 되기때문에 결과처리 먼저하고 send를 해야한다.
+				// 3) 결과처리하기
+				xhttp.onreadystatechange = function(){
+					if(this.readyState == 4 // 요청이 처리 완료됨(데이터 받음) 상태
+						&& this.status == 200) // 서버에서 요청 처리가 성공인 상태
+					{
+						// 정상 처리 되었을때 화면 처리 할 내용
+						console.log(this.responseText);
+						$("#divResult").html(this.responseText)		;				
+					}
+				};
+				// 4) 서버(, 페이지 등) 전송하기 - send()
+				xhttp.send();
+			});
+			
+			$("#btnGetJQ").click(function(){
+// 				var obj = { userId : "test01", userPW : "1234567890" };
+				var obj = $("#fm").serialize(); // input 값에 name을 넣어주어야한다.
+				$.ajax({
+					url : "html1.html"  // 호출할 주소(url)
+					, type : "get"      // 데이터 전송 방식(Method) - "get"/"post"
+					, data : obj        // 전송할 데이터
+					, dataType : "html" // 결과로 받은 데이터의 형식(서버로부터 받은 데이터 유형) 
+										//  - html, json, text, xml
+					, success : function(data){ // 성공시 처리할 작업
+						alert("성공");
+						// data를 가공해서 화면에 세팅 및 처리
+					}
+					, error : function(xhr){ // 오류시 처리할 작업
+						alert("실패");
+						// xhr에 오류코드와 오류 메시지가 포함.
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h3>XMLHttpRequest 사용하기</h3>
+	<button type="button" id="btnGetA">Get 비동기 호출</button>
+	<button type="button" id="btnGetS">Get 동기 호출</button>
+	<br><br>
+	<button type="button" id="btnJQ">JQ AJAX 호출</button>
+	<hr>
+	<div id="divResult" style="border: 1px solid; height: 300px; overflow: auto;"></div><br>
+	<form action="" method="get" id="fm">
+		아이디 : <input type="text" name="userName"><br>
+		비밀번호 : 	<input type="password" name="userPW">
+	</form>
+</body> 
+</html>

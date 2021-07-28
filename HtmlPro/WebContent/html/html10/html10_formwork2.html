@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>New Document</title>
+	<script type="text/javascript">
+		function showInfo() {
+			var name = document.getElementById("name").value;
+			var genderLen = document.getElementsByName("gender").length;
+			for (var i = 0; i < genderLen; i++) {
+				if(document.getElementsByName("gender")[i].checked == true){
+					var gender = document.getElementsByName("gender")[i].value;
+				}
+			}			
+			var hobby = [];
+			var hobbyLen = document.getElementsByName("hobby").length;
+			var result = "";
+			for (var i = 0; i < hobbyLen; i++) {
+				if(document.getElementsByName("hobby")[i].checked == true){
+					hobby.push(document.getElementsByName("hobby")[i].value);
+				} 
+			}
+			if(hobby.length == 0) {
+				result = name + "씨!<br>당신은 " + gender + "이고,<br>취미가 없군요."
+			} else {
+				result = name + "씨!<br>당신은 " + gender + "이고,<br>취미는 "
+							+ hobby + "이군요!";
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<h1>form 문제2</h1>
+	<form>
+		이름 : <input type="text" id="name"><br><br>
+		성별 :
+		<input type="radio" name="gender" id="man" value="남자">
+	    <label for="man">남자</label>
+	    <input type="radio" name="gender" id="woman" value="여자">
+	    <label for="woman">여자</label><br><br>
+	        취미 : 
+	    <input type="checkbox" name="hobby" id="trip" value="여행">
+		<label for="trip">여행</label>
+		<input type="checkbox" name="hobby" id="read" value="독서">
+		<label for="read">독서</label>
+		<input type="checkbox" name="hobby" id="movie" value="영화감상">
+		<label for="movie">영화감상</label>
+		<input type="checkbox" name="hobby" id="go" value="바둑">
+		<label for="go">바둑</label>
+		<input type="checkbox" name="hobby" id="asianchess" value="장기">
+		<label for="asianchess">장기</label>
+		<input type="checkbox" name="hobby" id="mountain" value="등산">
+		<label for="mountain">등산</label>
+		<input type="checkbox" name="hobby" id="fishing" value="낚시">
+		<label for="fishing">낚시</label>
+	    <br><br>
+	    <button type="button" onclick="showInfo()">결과출력</button><br><br>
+	    <div id="result" style="font-size: 20px; border: 1px solid black; height: 300px"></div>
+	</form>
+</body>
+
+</html>

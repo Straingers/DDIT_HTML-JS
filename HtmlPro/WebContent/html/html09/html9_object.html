@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>객체 생성 방법</title>
+	<script type="text/javascript">
+		var myCar = {
+			model : "GV80"
+			, color : "black"
+			, year : 2019
+			, speed : 30
+			, brake : function() {
+				//속도 줄이기 (speed)
+				this.speed -= 10;
+				//this.speed = myCar.speed
+				if (this.speed <= 0) {
+					this.speed = 0;
+				}
+				alert("속도 : " + this.speed);
+			}
+			, accel : function() {
+				//속도 올리기 (speed)
+				this.speed += 10;
+				alert("속도 : " + this.speed);
+			}
+		};
+		
+		// 생성자로 객체 생성
+		function Car(model, color, speed){
+			this.model = model;
+			this.color = color;
+			this.speed = speed;
+			
+			this.brake = function(){
+				this.speed -= 10;
+				if (this.speed <= 0) {
+					this.speed = 0;
+				}
+			}
+			this.accel = function(){
+				this.speed += 10;
+			}
+		};
+		
+		var hongCar = new Car("GV70", "Red", 50);
+		var leeCar = new Car("RangeRover", "White", 80);
+		//...
+		hongCar.color = "White";	
+	
+		// object를 배열로 변환 - Object.values();
+		var person = {
+				name : "홍길동"
+				, age : 30
+				, city : "대전"
+				, nation : "대한민국"
+				, father : false
+		};
+		var tmp = Object.values(person);
+		alert(tmp);
+		
+		// object를 문자열로 반환 - JSON.stringify();
+		var myStr = JSON.stringify(person);
+		alert(myStr);
+	</script>
+</head>
+<body>
+	<button type="button" onclick="myCar.brake()">브레이크</button>
+	<button type="button" onclick="myCar.accel()">엑셀</button>
+	<hr>
+
+</body>
+</html>

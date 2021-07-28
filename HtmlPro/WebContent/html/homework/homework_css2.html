@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>가상 클래스 이용하기</title>
+	<style type="text/css">
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td {
+			border: 2px solid red;
+			height: 60px;
+			text-align: center;
+		}
+		/** case1) 직접 클래스 이용 */
+		.yellow {
+			background-color: yellow;
+		}
+		.aqua {
+			background-color: aqua;
+		}
+		
+		/** case2) 가상 클래스 이용 */
+		table tr:first-child {
+			background-color: yellow;
+		}
+		table tr:nth-child(2n+3) {
+			background-color: lime;
+		}
+		/*
+		tr:nth-child(n) {~}    ==> n번째
+		tr:nth-child(2n) {~}   ==> 짝수
+		tr:nth-child(2n+1) {~} ==> 홀수
+		tr:nth-child(even) {~} ==> 짝수
+		tr:nth-child(odd) {~}  ==> 홀수
+		*/
+			
+	</style>
+</head>
+<body>
+	<center><h1>연습2</h1></center>
+	<h3>가상 클래스 이용하기</h3>
+	<table>
+		<tr class="yellow">
+			<td>알라딘</td>
+			<td>임꺽정</td>
+			<td>개나리</td>
+			<td>홍길동</td>
+		</tr>
+		<tr class="aqua">
+			<td>패밀리</td>
+			<td>스타일</td>
+			<td>텍스트</td>
+			<td>볼드체</td>
+		</tr>
+		<tr>
+			<td>선택자</td>
+			<td>인라인</td>
+			<td>패밀리</td>
+			<td>요소들</td>
+		</tr>
+		<tr class="aqua">
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</body>
+</html>

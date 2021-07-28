@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	/**
+		document : 전체
+		document.head, document.body : head랑 body
+		document.documentElement : html을 반환한다.
+		documnet.getElementById("tmp2") : <ul>
+		documnet.getElementById("tmp2").parentElement : <body>
+		documnet.getElementById("tmp2").parentNode : <body>
+		documnet.getElementById("tmp2").children 
+			: <li>, <li id="tmp3">, <li>
+		documnet.getElementById("tmp2").childNode 
+			: text, li, text, li id="tmp3", text, li, ul // 노드는 공백도 포함이된다
+		document.getElementById("tmp2").firstElementChild
+			: <li>아메리카노</li>
+		document.getElementById("tmp2").firstChild
+			: text
+		document.getElementById("tmp2").lastElementChild
+			: <li>카푸치노</li>
+		document.getElementById("tmp2").lastChild
+			: text
+		document.getElementById("tmp3").nextSibling : text
+		document.getElementById("tmp3").nextElementSibling 
+			: <li id="tmp3">카페라떼</li>
+		document.getElementById("tmp3").previousElementSibling 
+			: <li>아메리카노</li>
+		document.getElementById("tmp3").tagName : "LI"
+		document.getElementById("tmp3").nodeName : "LI"
+		document.getElementById("tmp3").nextSibling.nodeName
+			: "#text"
+		document.getElementById("tmp3").nextSibling.nextSibling.nodeName
+			: "LI"
+		document.getElementById("tmp3").textContent
+			: "카페라떼"
+		document.getElementById("tmp3").nodeValue : null
+		document.getElementById("tmp3").firstChild
+			: "카페라떼" => 객체
+		document.getElementById("tmp3").firstChild.nodeValue
+			: "카페라떼" => 글자(String)
+	*/
+		function addtext(t) {
+			var node = document.createTextNode(t);
+			document.getElementById("target").appendChild(node);
+		}
+	</script>
+</head>
+<body>
+	<p id="tmp1">동해물과 백두산이</p>
+	<ul id="tmp2">
+		<li>아메리카노</li>
+		<li id="tmp3">카페라떼</li>
+		<li>카푸치노</li>
+	</ul>
+	<hr>
+	<div id="target" style="font: 20px bold;" onclick="addtext('무궁화 꽃이 피었습니다')">
+		여기를 클릭하세요
+	</div>
+</body>
+</html>

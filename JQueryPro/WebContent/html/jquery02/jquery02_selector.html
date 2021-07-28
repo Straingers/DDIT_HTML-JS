@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// h2의 자식a태그의 테두리 설정
+			$("h2>a", "#div1").css("border", "1px solid red");
+			// h2의 후손a태그에 배경색 설정
+			$("h2 a", "#div1").css("background-color", "lightgreen");
+			// h2의 손자a태그에 글자색 설정
+			$("h2>>a", "#div1").css("color", "white");
+			//////////////////////////////////////////////
+			$("p span", "#div2").css("background-color", "yellow");
+			$("div span", "#div2").css("background-color", "yellow");
+			$("div>span", "#div2").css("border", "2px solid blue");
+			$("div>p", "#div2").css("border", "2px  blue");
+			$("div>>span", "#div2").css("border", "2px solid red");
+			$("div>>p", "#div2").css("border", "3px dashed black").css("padding", "5px");
+			/////////////////////////////////////////////////
+			$("h3~p", "#div3").css("background-color", "yellow").css("width", "150").css("text-align", "center");
+			$("h3+p", "#div3").css("font-weight", "bold");
+		});
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<h2>
+			문단안에 <a>링크</a> 태그가 있다. 
+			<span>두번째 <a>링크</a>는 손자이다.</span>
+		</h2>
+	</div>
+	<hr>
+	<div id="div2">
+		<p>
+			이 문단에는 <span>스팬</span> 엘리먼트가 있다.
+		</p>
+		<div>
+			이 디비젼에도 <span>스팬</span> 엘리먼트가 있다.
+			<p>디비젼의 내부 문단의 <span>스팬</span> 엘리먼트이다.</p>
+			<div>
+				<p>
+					내부 디비젼의 다시 문단속 아주 <strong>깊은곳에</strong> 
+					<em>숨어있는</em> <span>스팬</span> 엘리먼트도 있다.
+				</p>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div id="div3">
+		<p>형제 선택자에 대하여...</p>
+		<h3>꼬마버스 타요 가족을 소개합니다</h3>
+		<p>타요</p>
+		<p>로기</p>
+		<p>라니</p>
+		<p>가니</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").click(function(e){
+				var str = "이벤트종류 : " + e.type
+					+ "\n이벤트발생요소 : " + e.target
+					+ "\n클릭좌표 X : " + e.pageX
+					+ "\n클릭좌표 Y : " + e.pageY
+					+ "\n클릭좌표 X : " + e.screenX
+					+ "\n클릭좌표 Y : " + e.screenY
+					+ "\n클릭버튼 : " + e.button;
+				alert(str);
+			});
+			
+			// 마우스를 움직이면 좌표값을 얻어서 div에 출력
+			$("body").mousemove(function(e){
+				var str = "pageX : " + e.pageX + "<br>"
+						+ "pageY : " + e.pageY + "<br>"
+						+ "screenX : " + e.screenX + "<br>"
+						+ "screenY : " + e.screenY + "<br>";
+				$("div[id='log']").html(str);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div style="width: 300px; height: 200px; background-color: yellow;"></div>
+	<br>
+	<button type="button">버튼</button>
+	<hr>
+	<div id="log" style="height: 50px"></div>
+</body>
+</html>

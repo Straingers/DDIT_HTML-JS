@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+</head>
+<body>
+	이름 : <span id="userName"></span><br>
+	나이 : <span id="userAge"></span><br>
+	아이디 : <span id="userId"></span><br>
+	비밀번호 : <span id="userPw"></span><br>
+	핸드폰번호 : <span id="userHp"></span><br>
+	주소 : <span id="userAddr"></span><br>
+</body>
+<script src="/JQueryPro/html/jquery09/myUtil.js"></script>
+<script type="text/javascript">
+	var url = location.href;
+	
+	var userInfo = [getValue(url, "userName"), getValue(url, "userAge")
+				, getValue(url, "userId"), getValue(url, "userPw"), getValue(url, "userHp")
+				, getValue(url, "userAddr")];
+	var info = ["userName", "userAge", "userId", "userPw"
+				, "userHp","userAddr"];
+	
+	for(var i = 0; i < userInfo.length; i++){
+		
+		
+		
+		var tmp = chkRegExp(userInfo[i], info[i]);
+		if(!tmp) {
+			$("#"+info[i]).focus();
+			break;
+		}
+		
+		if(isEmpty(userInfo[i]) == true){
+			userInfo[i] = " 입력한 값이 없습니다.";
+		}
+		if(info[i] == "userHp"){
+			userInfo[i] = format(userInfo[i], "hp");
+		}
+		$("#" + info[i]).html(decodeURI(userInfo[i]));
+	}
+</script>
+</html>

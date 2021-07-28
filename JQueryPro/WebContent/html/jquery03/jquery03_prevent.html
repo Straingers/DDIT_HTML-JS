@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("a", "#ex1").click(function(e){
+				var age = prompt("나이를 입력해주세요\n(숫자만 입력 가능)");
+				if(age < 15){
+					e.preventDefault();
+					alert("15세 이상만 이용 가능합니다.");
+				}
+			});
+			///////////////////////////////////////
+			$("div").click(function(){
+				
+			});
+			$("p").click(function(){
+				
+			});
+			$("span").click(function(e){
+				// 부모요소들은 호출하지 않는다.
+				// case 1)
+				e.stopPropagation();
+				// case 2)
+				// return false;
+			});
+			///////////////////////////////////////
+			// span클릭 : 배경색 빨강, h1클릭 배경색 녹색으로 변경
+			// span 클릭해도 h1에 이벤트가 전달되지 않아야함
+			$("h1", "#ex2").click(function(){
+				$(this).css("background-color", "green");
+			});
+			$("span", "#ex2").click(function(e){
+				$(this).css("background-color", "red");
+				e.stopPropagation();
+			});
+			
+			////////////////////////////////////////
+			// button 클릭시, 버튼의 테두리 설정
+			// span 클릭시, span의 테두리 설정
+			// div 클릭시, div의 테두리 설정. div안에 "Hello~"글자 추가.
+			// a 클릭시, 프롬프트로 태어난 년도 4자리를 입력받아서 20세 이상인 경우에만 링크 이동하기
+			$("button").click(function(e){
+				$(this).css("border", "2px solid red");
+				e.stopPropagation();
+			});
+			$("span", "#ex3").click(function(e){
+				$(this).css("border", "3px dotted blue").css("background-color", "yellow");
+				e.stopPropagation();
+			});
+			$("div", "#ex3").click(function(){
+				$(this).css("border", "3px double black").css("background-color", "pink").append("Hello~ ");
+			});
+			$("a", "#ex3").click(function(e){
+				var birth = prompt("태어난 년도 4자리를 입력하세요\n(숫자만 입력하세요)");
+				var year = new Date();
+				if(birth == null){
+					e.preventDefault();
+					alert("입력값이 없습니다.");
+				}
+				if((year.getFullYear() - birth) < 18){
+					e.preventDefault();
+					alert("20세 이상만 이용 가능합니다.");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="ex1">
+		<h2>예제1</h2>
+		<p>
+			<a id="link" href="http://www.naver.com" target="_blank">네이버</a>로 이동
+		</p>
+	</div>
+	<hr>
+	<div style="height: 250px; background-color: yellow;">
+		애국가 1절
+		<p style="height: 100px; background-color: lightgreen">
+			동해물과 백두산이<br>
+			<span style="border: 1px solid red">마르고 닳도록</span><br>
+			하느님이 보우하사<br>
+			우리 나라 만세
+		</p>
+	</div>
+	<hr>
+	<div id="ex2">
+		<h2>예제2</h2>
+		<h1>큰 제목 안에 <span>작은 영역</span>이 있다.</h1>
+	</div>
+	<hr>
+	<div id="ex3">
+		<h2>예제3</h2>
+		<div style="height: 300px; overflow: auto;">
+			<span style="display: inline-block; padding: 30px; margin: 30px;">
+				<button type="button">클릭하세요</button>
+			</span><br>
+		</div><br>
+		<hr color="red"><br>
+		<a href="http://www.daum.net" target="_blank">Daum사이트 가기</a>
+	</div>
+	<br>
+	
+</body>
+</html>

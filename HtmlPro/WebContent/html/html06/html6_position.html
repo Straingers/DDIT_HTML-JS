@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Position 연습</title>
+	<style type="text/css">
+	p, div {
+		width: 200px;
+		height: 100px;
+	}
+	p#ex1 {
+		background-color: aqua;
+	}
+	div#ex2 {
+		background-color: yellow;
+		position: absolute;
+		top: 30px;
+		left: 50px;
+	}
+	p#ex3 {
+		background-color: lightgreen;
+	}
+	#container {
+		background-color: gray;
+		position: relative;
+	}
+	
+	img {
+		width: 300px;
+		position: absolute;
+		z-index: -1;
+	}
+	img+p {
+		color: fuchsia;
+	}
+	</style>
+</head>
+<body>
+	<h1>position 연습</h1>
+	<p id="ex1">블럭1</p>
+	<div id="container">
+		<div id="ex2">블럭2 (position)</div>
+	</div>
+	<p id="ex3">블럭3</p>
+	<hr>
+	<h1>z-index 연습</h1>
+	<img src="../../images/spongebob.png" alt="외않나와요">
+	<p>흐헤헤힣헤ㅣ하힣힣흐하헤헤헤헤에ㅇ헹헹앟에헤에ㅔㅇ헤헹흐ㅏㅡㅔㅎ에ㅐㅇㅎ헤ㅔㅎ엫에헤</p>
+</body>
+</html>
+
+

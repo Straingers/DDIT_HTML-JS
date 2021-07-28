@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("p").click(function(){
+				// 부모가 div이면 alert() 주기
+				if($(this).parent().is("div")){
+					alert("부모가 div인 p태그 입니다.");
+				}				
+			});
+		});
+	</script>
+</head>
+<body>
+	<p>클릭하세요1</p>
+	<div>
+		<p>클릭하세요2</p>
+	</div>
+</body>
+</html>

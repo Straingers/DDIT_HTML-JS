@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var user = {
+					name : "홍길동"
+					, birth : "1425-12-14"
+					, age : 30
+					, address : {city : "대전시"
+								, gu : "중구"
+								, dong : "대흥동"}
+					, hobby : ["무술", "검술", "독서"]
+			}
+			$("#test").click(function(){
+				// 1차변환 (obj > str)
+				var first = JSON.stringify(user);
+				$("#toStr").text(first);
+				// 2차변환 (str > obj)
+				var second = JSON.parse(first);
+				$("#toObj").text(second);
+				// 이름
+				$("#name").text(user.name);
+				// 주소
+				$("#addr").text(
+					user.address.city + " " + user.address.gu + " "
+					+ user.address.dong
+				);
+				// 취미
+				var hobby = user.hobby[0];
+				for(var i = 1; i < user.hobby.length; i++){
+					hobby +=  ", " + user.hobby[i];
+				}
+				$("#hobby").text(hobby);
+				// 생년월일
+				$("#birth").text(new Date(user.birth));
+			});
+		});
+	</script>
+</head>
+<body>
+	<p>
+		<button type="button" id="test">JSON 변환 테스트</button>
+	</p>
+	<p>
+		1차변환(obj &gt; str) : <span id="toStr"></span>
+	</p>
+	<p>
+		2차변환(str &gt; obj) : <span id="toObj"></span>
+	</p>
+	<p>
+		이름 : <span id="name"></span>
+	</p>
+	<p>
+		주소 : <span id="addr"></span>
+	</p>
+	<p>
+		취미 : <span id="hobby"></span>
+	</p>
+	<p>
+		생년월일 : <span id="birth"></span>
+	</p>
+</body>
+</html>

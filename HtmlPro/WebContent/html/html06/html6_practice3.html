@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		body, h1, h2, h3, h4, h5, p {
+			margin: 10px;
+		}
+		header {
+			background-color: pink;
+			line-height: 80px;
+			text-align: center;
+			border-radius: 20px;
+		}
+		.content {
+	 		min-width: auto;
+		}
+	 	nav {
+	 		background-color: orange;
+	 		float: left;
+	 		width: 30%;
+	 		height: 500px;
+	 		height: calc(100vh - 120px);
+			border-radius: 20px;
+	 	}
+	 	nav div {
+	 		padding: 10px;
+	 	}
+	 	nav img {
+	 		width: 200px;
+	 	}
+	 	
+	 	section {
+	 		background-color: yellow;
+	 		float: right;
+	 		width: calc(70% - 10px);
+	 		min-width: calc(50% - 220px);
+	 		height: calc(100vh - 120px);
+			border-radius: 20px;
+			margin-bottom: 10px;
+	 	}
+	 	section article {
+	 		padding: 10px;
+	 	}
+	 	
+	 	footer {
+	 		background-color: navy;
+	 		color: white;
+	 		clear: both;
+	 		line-height: 40px;
+	 		text-align: center;
+			border-radius: 20px;
+	 	}
+	</style>
+</head>
+<body>
+	<!-- 머릿글-->
+	<header>
+		<h1>My Blog Page</h1>
+	</header>
+	<div class="content">
+		<!-- 네비-->
+		<nav>
+			<div>
+				<h2>Links</h2>
+				<ul>
+					<li>
+						<a href="http://www.google.com" target="_blank">
+							W3C
+						</a>
+					</li>
+					<li>
+						<a href="http://www.google.com" target="_blank">
+							Mozilla
+						</a>
+					</li>
+					<li>
+						<a href="http://www.google.com" target="_blank">
+							HTML Dogs
+						</a>
+					</li>
+				</ul>
+				<img alt="" src="../../images/hong.jfif">
+				<p>홍길동</p>
+			</div>
+		</nav>
+		<!-- 본문-->
+		<section>
+			<!-- 시맨틱태그 -->
+			<article>
+				<h2>Semantic Tags</h2>
+				<p>
+					시맨틱 요소들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다.
+				</p>		
+			</article>
+			<!-- div 내용 -->
+			<article>
+				<h2>div와 span</h2>		
+				<p>
+					div는 divide의 약자로써 ......
+				</p>
+			</article>
+		</section>
+	</div>
+	<!-- 바닥글-->
+	<footer>
+		<p>Copyright (c) 2021 Hong</p>
+	</footer>
+</body>
+</html>

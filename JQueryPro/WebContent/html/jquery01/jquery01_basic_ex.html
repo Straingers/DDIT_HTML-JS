@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").css("background-color", "yellow");
+			$("h1").css("color", "blue");
+			$("#para").css("color", "green");
+			$(".sample").css("color", "red");
+			
+			// 문서가 로딩되고 나서 h2 요소에 클릭 이벤트 설정해주기
+			$("h2").click(function(){
+				$(this).hide();
+			});
+		});
+		function hide(){
+			$("h1").hide();	
+		}
+	</script>
+</head>
+<body>
+	<h1 onclick="hide()">JQuery 테스트</h1>
+	<h1>제목</h1>
+	<h2 id="para">작은 제목 입니다</h2>
+	<h2 class=sample>샘플입니다</h2>
+	
+</body>
+</html>

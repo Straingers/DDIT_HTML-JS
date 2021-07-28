@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="zip">
+	<select id="retrieveSidoList" resultClass="kr.or.ddit.common.vo.ZipVO">
+		SELECT SIDO sido
+		FROM   TB_ZIP 
+		GROUP  BY SIDO
+		ORDER  BY 1
+	</select>	
+	<select id="retrieveGugunList" parameterClass="kr.or.ddit.common.vo.ZipVO" resultClass="kr.or.ddit.common.vo.ZipVO">
+		SELECT GUGUN gugun
+		FROM   TB_ZIP
+		WHERE  SIDO = #sido#
+		GROUP  BY GUGUN
+		ORDER  BY 1
+	</select>	
+	<select id="retrieveDongList" parameterClass="kr.or.ddit.common.vo.ZipVO" resultClass="kr.or.ddit.common.vo.ZipVO">
+		SELECT DONG dong
+		FROM   TB_ZIP
+		WHERE  SIDO = #sido#
+		AND    GUGUN = #gugun#
+		GROUP  BY DONG
+		ORDER  BY 1
+	</select>	
+	<select id="retrieveZipList" parameterClass="kr.or.ddit.common.vo.ZipVO" resultClass="kr.or.ddit.common.vo.ZipVO">
+		SELECT A.ZIPCODE zipcode
+			 , A.SIDO    sido
+			 , A.GUGUN   gugun
+			 , A.DONG    dong
+			 , A.RI      ri
+			 , A.BLDG    bldg
+			 , A.BUNJI   bunji
+			 , A.SEQ     seq
+		FROM   TB_ZIP A
+		WHERE  A.SIDO = #sido# 
+		AND    A.GUGUN = #gugun#
+		AND    A.DONG = #dong#
+		ORDER  BY A.SEQ
+	</select>	
+</sqlMap>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num1 =	prompt("첫번째 숫자를 입력하세요", "숫자만");
+		var yeon = prompt("연산자를 입력하세요", "+, -, *, /, %");
+		var num2 = prompt("두번째 숫자를 입력하세요", "숫자만");
+		num1 = parseInt(num1);
+		num2 = parseInt(num2);
+		var answer = 0;
+		if (yeon == "+") {
+			answer = num1 + num2;
+		} else if (yeon == "-") {
+			answer = num1 - num2;
+		} else if (yeon == "*") {
+			answer = num1 * num2;
+		} else if (yeon == "/") {
+			answer = num1 / num2;
+		} else if (yeon == "%") {
+			answer = num1 % num2;
+		} else {
+			alert("잘못 입력하였습니다.");
+		} document.write(num1 + " " + yeon + " " + num2 + " = " + answer);
+	</script>
+</body>
+</html>

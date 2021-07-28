@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img {
+			height: 100px;
+		}
+	</style>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		var imgPath = "../../images/";
+		$(document).ready(function(){
+			$("p").click(function(){
+				// case1
+// 				var addObj = $("<img>");
+// 				var img = addObj.attr("src", imgPath + $(this).attr("title"))
+				
+				// case2
+				var img = $("<img>", {
+					"src" : imgPath + $(this).attr("title")
+					, "alt" : $(this).text()
+				});
+				
+				$(this).append(img);
+			});
+		});
+	</script>
+</head>
+<body>
+	<p title="lion.jpg">사아자</p>
+	<p title="dora.jpg">도오라에몽</p>
+	<p title="coffee1.jpg">커어피</p>
+	<p title="flowers.jpg">꽃</p>
+</body>
+</html>

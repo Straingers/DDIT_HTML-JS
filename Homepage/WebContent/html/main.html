@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Shopping</title>
+	<link rel="stylesheet" type="text/css" 
+		  href="../css/main.css">
+</head>
+<body margin="0px">
+	<header>
+		<h1>
+			<a href="main.html" target="_self">
+				<img alt="htmllogo" src="../images/html5.png" style="width: 50px; height: 40px;">
+				Web Shopping
+			</a>
+		</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="main.html" target="_self">HOME</a></li>
+			<li><a href="#" target="_self">SHOPPING ABOUT</a></li>
+			<li><a href="#" target="_self">NEWS</a></li>
+			<li><a href="#" target="_self">MY ACCOUNT</a></li>
+			<li><a href="#" target="_self">CONTACTS</a></li>
+		</ul>
+	</nav>
+	<div id="body">
+		<aside id="asideLeft">
+			<h3>카테고리</h3>
+			<div>
+				<ul>
+					<a href="computer.html" target="main_if"><li>컴퓨터</li></a>
+					<a href="clothing.html" target="main_if"><li>의류</li></a>
+					<a href="music.html" target="main_if"><li>음악</li></a>
+					<a href="movie.html" target="main_if"><li>영화</li></a>
+					<a href="#"><li>스포츠/레저</li></a>
+					<a href="#"><li>가구/인테리어</li></a>
+					<a href="food.html" target="main_if"><li>식품</li></a>
+				</ul>
+			</div>
+		</aside>
+		<section>
+		</section>
+		<aside id="frameSide">
+			<iframe src="computer.html" title="iframe" name="main_if">
+			</iframe>
+			<div id="asideRight">
+				<div>
+					<h3>Shopping Cart</h3>
+					<p>
+						현재 쇼핑카트에 물품이 없습니다.
+					</p>
+					<a href="shopcart.html" target="_blank">쇼핑카트 보기</a>
+				</div>
+				<div>
+					<form>
+						<h3>Log In</h3>
+						아이디<br>
+						<input type="text" name="userId"><br>
+						비밀번호<br>
+						<input type="text" name="userPw"><br><br>
+						<button type="button">로그인</button>
+						<button type="reset">초기화</button>
+					</form>
+					<br>
+					<a href="regiter.html" target="_blank">회원가입</a>
+					<a href="#" onclick="alert('아이고...어떡해')">비밀번호 분실</a>
+				</div>
+			</div>
+		</aside>
+	</div>
+	<footer>
+		<p>Copyright (c) 2021 DDIT</p>
+	</footer>
+</body>
+</html>

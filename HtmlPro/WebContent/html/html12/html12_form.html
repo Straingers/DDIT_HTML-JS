@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>form</title>
+	<script type="text/javascript">
+		function checkEmpty() {
+			/* var ele = document.getElementById("userName");
+			if(ele.value.trim().length == 0) {
+				alert("이름이 입력되지 않았습니다.")
+				ele.focus();
+				return;
+			} */
+			// 값들을 전부 배열로 만들어서 빈값 유뮤 체크
+			var arr = document.getElementsByTagName("input");
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i].value.trim().length == 0) {
+					alert(arr[i].name + "이(가) 입력되지 않았습니다.");
+					arr[i].focus();
+					return;
+				}
+			}
+		}
+		function checklength() {
+			var ele = document.getElementById("userId");
+			if(ele.value.length < 6 || ele.value.length > 8) {
+				alert("아이디는 6~8글자 입니다.");
+				ele.focus();
+				return;
+			}
+		}
+		function validate() {
+			// 전체 빈값 X
+			var userName = document.getElementById("userName");
+			var userAddr = document.getElementById("userAddr");
+			var userBir = document.getElementById("userBir");
+			var userId = document.getElementById("userId");
+			var userEmail = document.getElementById("userEmail");
+			var userTel = document.getElementById("userTel");
+			userTel = userTel.replaceAll("-", "");
+			
+			// 아이디 체크 - 2 ~ 5글자
+			if(userName.value.trim().length == 0) {
+				alert("이름이 입력되지 않았습니다.")
+				userName.focus();
+				return;
+			}
+			if(userName.value.length < 2 || userName.value.length > 5) {
+				alert("이름은 2~5글자 입니다.")
+				userName.focus();
+				return;
+			}
+			// 주소 빈값 체크
+			if(userAddr.value.trim().length == 0) {
+				alert("주소가 입력되지 않았습니다.")
+				userAddr.focus();
+				return;
+			}
+			// 생일 체크 - ~ 10글자
+			if(userBir.value.trim().length == 0) {
+				alert("생일이 입력되지 않았습니다.")
+				userBir.focus();
+				return;
+			}
+			if(userBir.value.length > 10) {
+				alert("생일은 10자 입니다.");
+				userBir.focus();
+				return;
+			}
+			
+			// 아이디 체크 - 6 ~ 8글자
+			if(userId.value.trim().length == 0) {
+				alert("아이디가 입력되지 않았습니다.")
+				userId.focus();
+				return;
+			}
+			if(userId.value.length < 6 || userId.value.length > 8) {
+				alert("아이디는 6~8글자 입니다.");
+				userId.focus();
+				return;
+			}
+			// 이메일 빈값 체크
+			if(userEmail.value.trim().length == 0) {
+				alert("이메일이 입력되지 않았습니다.")
+				userEmail.focus();
+				return;
+			}
+			// 휴대폰 - ~ 13글자
+			if(userTel.value.trim().length == 0) {
+				alert("휴대폰 번호가 입력되지 않았습니다.")
+				userTel.focus();
+				return;
+			}
+			if(userTel.value.length > 13) {
+				alert("휴대폰 번호는 10자 입니다.");
+				userTel.focus();
+				return;
+			}
+			alert("정상입니다.");
+		}
+		// 정규 표현식
+		function pattern() {
+			// 핸드폰 번호 검사
+			var tel = document.getElementById("userTel");
+			var telExp = /^\d{3}-?\d{3,4}-?\d{4}$/;
+			if(tel.value.match(regExp)) {
+				alert("전화번호가 정상입니다.");
+				return;
+			} else {
+				alert("전화번호가 오류입니다.");
+				tel.focus();
+				return;
+			}
+			// 이메일 형식 검사
+			var email = document.getElementById("userEmail");
+			var emailExp = 
+				/^[a-zA-Z0-9]([-_.]?[a-zA-Z0-1])*@$\w[a-zA-Z0-9][-_.]?[a-zA-Z0-9][-_.]*.[a-zA-Z]{2,3}/
+			if(email.value.match(regExp)) {
+				alert("이메일이 정상입니다.");
+				return;
+			} else {
+				alert("이메일이 오류입니다.");
+				email.focus();
+				return;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h3>회원가입</h3>
+	<form>
+		이름 : <input type="text" id="userName" name="이름"><br>
+		주소 : <input type="text" id="userAddr" name="주소"><br>
+		생일 : <input type="date" id="userBir" name="생일"><br>
+		아이디(6~8문자) : <input type="text" id="userId" name="아이디"><br>
+		이메일 : <input type="email" id="userEmail" name="이메일"><br>
+		휴대폰 : <input type="tel" id="userTel" name="휴대폰"><br>
+		<button type="submit">Submit</button>
+		<button type="button" onclick="checkEmpty()">확인1</button>
+		<button type="button" onclick="checklength()">확인2</button>
+		<br>
+		<button type="button" onclick="validate()">확인</button>
+		<button type="button" onclick="pattern()">정규식확인</button>
+	</form>
+</body>
+</html>

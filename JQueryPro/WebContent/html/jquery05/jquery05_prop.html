@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#all").click(function(){
+				// '전체선택' 체크박스가 체크 되어 있을때
+				if($(this).prop("checked")){
+// 					$(":checkbox", "#ckbox").prop("checked", false).each(function(){
+// 						$(this).prop("checked", true);
+// 					});
+					$(":checkbox", "#ckbox").prop("checked", true);
+				} 
+				// '전체선택' 체크박스가 체크가 되어있지 않을때
+				else if($(this).prop("checked", false)){
+					$(":checkbox", "#ckbox").prop("checked", false);
+				}
+				// $(":checkbox", "#ckbox").not(":checked") => 체크 안된것들 반환
+			});
+			
+			// 체크박스가 전부 체크되어있으면 '전체선택' 체크
+			// 체크박스에 하나라도 체크되어있지 않으면 '전체선택' 체크해제
+			$(":checkbox", "#ckbox").click(function(){
+				if($("[name=num]").not(":checked").length == 0) {
+					$("#all").prop("checked", true);
+				} else if ($("[name=num]").not(":checked").length > 0){
+					$("#all").prop("checked", false);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<form>
+		체크박스 : <input type="checkbox" checked="checked"><br><br>
+		라디오 : 
+		<input type="radio" name="gender" id="male" checked="checked"> 
+		<label for="male">남자</label>
+		<input type="radio" name="gender" id="female"> 
+		<label for="female">여자</label><br><br>
+		리스트박스 : 
+		<select>
+			<option value="0" selected="selected">== 선택 ==</option>
+			<option value="1">하나</option>
+			<option value="2">둘</option>
+			<option value="3">삼</option>
+			<option value="4">넷</option>
+			<option value="5">오</option>
+		</select><br><br>
+		(readonly) : <input type="text" readonly="readonly" value="가나다"><br><br>
+		(disabled) : 
+		<button type="button" disabled="disabled">실행</button>	
+		<button type="button" id="attr">attr확인</button>	
+		<button type="button" id="prop">prop확인</button>
+		<br><br>
+	</form>
+	<hr><br>
+	<div id="ckbox">
+		체크박스(전체선택/해제):<br>
+		<input type="checkbox" id="all">
+		<label for="all">전체선택</label>
+		&nbsp;&nbsp;&nbsp;
+		<input type="checkbox" id="1" name="num">
+		<label for="1">1</label>
+		<input type="checkbox" id="2" name="num">
+		<label for="2">2</label>
+		<input type="checkbox" id="3" name="num">
+		<label for="3">3</label>
+		<input type="checkbox" id="4" name="num">
+		<label for="4">4</label>
+		<input type="checkbox" id="5" name="num">
+		<label for="5">5</label>
+	</div>
+</body>
+</html>

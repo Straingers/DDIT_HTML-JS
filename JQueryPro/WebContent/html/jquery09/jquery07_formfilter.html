@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(":enabled", "#ex1").css("border-color", "blue");
+			$(":disabled", "#ex1").css("border-color", "red");
+			
+		///////////////////////////////////////////////
+				
+			$("#hobbySend", "#ex2").click(function(){
+// 				var hobby = [];
+// 				$(":checked", "#ex2").each(function(){
+// 					hobby.push($(this).val());
+// 				});
+// 				$("p", "#ex2").html("선택결과 : " + hobby);
+// 				alert(hobby);
+
+// 				var str = "";
+// 				$(":checked", "#ex2").each(function(idx, item){
+// 					var val = $(this).val();
+					
+// 					if(idx == 0) str += val;
+// 					else str += ", " + val;
+// 				});
+// 				alert(str);
+				
+				// value값이 코드값인 경우
+				var str = "";
+				$(":checked", "#ex2").each(function(idx, item){
+					// 체크박스의 id와 라벨의 for가 연결되어 있으므로
+					var tmpId = $(this).attr("id");
+					var val = $("label[for=" + tmpId + "]").text();
+					
+					if(idx == 0) str += val;
+					else str += ", " + val;
+				});
+				alert(str);
+			});
+			
+			$("#springBtn").click(function(){
+				var flowers = "";
+				$(":selected", "#ex3").each(function(idx){
+					var flower = $(this).text();
+					
+					if(idx == 0) {
+						flowers += flower;
+					} else {
+						flowers += ", " + flower;
+					}
+				});
+				$("span", "#ex3").html(flowers);
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="ex1">
+		<form>
+			<input type="text"><br>
+			<input type="password"><br>
+			<select name="idsSelect" disabled="disabled">
+				<option>Option1</option>
+			</select>
+			<br>
+			<textarea rows="10" cols="20">text</textarea><br>
+			<input type="button" value="확인" disabled="disabled">
+			<br>
+		</form>
+	</div>
+	<hr color="red">
+	<div id="ex2">
+		<form>
+			취 미 : 
+			<input type="checkbox" name="hobby" id="trip" value="여행"> 
+			<label for="trip">여행</label>
+			<input type="checkbox" name="hobby" id="k-chess" value="장기"> 
+			<label for="k-chess">장기</label>
+			<input type="checkbox" name="hobby" id="fishing" value="낚시"> 
+			<label for="fishing">낚시</label>
+			<input type="checkbox" name="hobby" id="read" value="독서"> 
+			<label for="read">독서</label>
+			<input type="checkbox" name="hobby" id="music" value="음악감상"> 
+			<label for="music">음악감상</label><br><br>
+			<button type="button" id="hobbySend">전송</button><br>
+			<p>선택결과 : </p>
+		</form>
+	</div>
+	<hr color="red">
+	<div id="ex3">
+		<form>
+			봄소식 : 
+			<select name="spring" id="spring" multiple size="6">
+				<option>개나리</option>			
+				<option selected>진달래</option>			
+				<option>민들레</option>			
+				<option selected>벚꽃</option>			
+				<option>목련</option>			
+				<option>철쭉</option>			
+			</select><br><br>
+			<input type="button" value="전송" id="springBtn"><br><br>
+			<div>
+				선택 결과 : <span></span>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

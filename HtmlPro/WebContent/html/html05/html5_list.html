@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.sample {
+			/* list-style-image: url("../../images/dora.jpg"); */
+			list-style-type: square;
+			list-style-position: inside;
+		}
+		
+		.style {
+			list-style: none;
+			border-top: 1px solid red; 
+			border-bottom: 1px solid red;
+			text-align: center;
+			padding-left: 0px;
+			padding: 10px 0px;
+		}
+		
+		ul.style li {
+			display: inline;
+			padding: 0px 20px;
+			letter-spacing: 10px; 
+			text-transform: uppercase;
+		}
+				
+		ul.style li a {
+			text-decoration: none;
+			color: black
+		}
+		
+		ul.style li a:hover {
+			font-family: monospace;
+			font-size: 20px;
+			text-decoration: underline;
+			color: fuchsia;
+		}
+	</style>
+</head>
+<body>
+	<p>리스트 스타일 연습</p>
+	<ul class="sample">
+		<li>아메리카노</li>	
+		<li>카푸치노</li>	
+		<li>카페라떼</li>	
+	</ul>
+	<hr>
+	<ul class="style">
+		<li><a href="#">Home</a></li>
+		<li><a href="#" class="nodeco">Blog</a></li>
+		<li><a href="#" class="nodeco">About</a></li>
+		<li><a href="#" class="nodeco">Contact</a></li>
+	</ul>	
+</body>
+</html>

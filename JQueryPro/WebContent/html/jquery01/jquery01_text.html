@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function getHTML() {
+			var result = $("p").html(); // get메소드 역할. 맨앞에있는 p태그의 내용
+			$("#result").html(result);	// set메소드 역할.
+			// js방법 : document.getElementById("result").innerHTML = result;
+		}
+		function getTEXT() {
+			var result = $("p").text(); // get메소드 역할. 모든 p태그의 내용
+			$("#result").html(result);	// set메소드 역할.
+		}
+		
+		function testRepeat(){
+			var objs = $("p");
+			// case 1) 일반 for문 사용
+			for(var i = 0; i < objs.length; i++){
+				alert(i+1 + "번째 : " + $(objs[i]).html());
+			}
+			
+			// case 2) jquery each문 사용 - selector
+			$("p").each(function(idx, item){
+				alert(idx+1 + "번째 : " + $(item).html());
+				alert($(this).html());
+			});
+			
+			// case 3) jquery each문 사용 - object
+			var arr = ["현대", "기아", "쉐보레"];
+			$.each(arr, function(idx, obj){
+				alert(obj);
+			});
+		}
+	</script>
+</head>
+<body>
+	<p>아기상어 뚜루루뚜루 </p>
+	<p><strong>아빠상어</strong> 뚜루루뚜루</p>
+	<p>엄마상어 뚜루루뚜루 </p>
+	<p>할머니상어 뚜루루뚜루 </p>
+	<button type="button" onclick="getHTML()">html()</button>
+	<button type="button" onclick="getTEXT()">text()</button><br><br>
+	<button type="button" onclick="testRepeat()">반복문 테스트</button>
+	<div id="result">
+	</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>요소 생성</title>
+	<script type="text/javascript">
+		function addImages() {
+			var arr = document.getElementsByTagName("li");
+			
+			// 이미지 소스를 가지고 있는 배열
+			var arrImgSrc = ["coffee1.jpg", "dora.jpg", "flowers.jpg", "lion.jpg", "Santorini.jpg"];
+			for (var i = 0; i < arr.length; i++) {
+				// 이미지 요소를 생성
+				var imgObj = document.createElement('img');
+				imgObj.alt = "뭐지";
+				imgObj.src = "../../images/" + arrImgSrc[i];
+				imgObj.height = "30";
+				
+				arr[i].appendChild(imgObj);
+			}
+		}
+		function removeEle() {
+			var parentEle = document.getElementById("target"); // <div>
+			var childEle = document.getElementById("p1"); // <p id="p1">
+			parentEle.removeChild(childEle);
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="addImages()">실행</button>
+	<ul>
+		<li>아메리카노</li>
+		<li>카푸치노</li>
+		<li>카페라떼</li>
+		<li>호랑이</li>
+		<li>구름</li>
+	</ul>
+	
+	<hr>
+	
+	<div id="target">
+		<p id="p1">
+			첫번째 단락
+		</p>
+		<p id="p2">
+			두번째 단락
+		</p>
+		<button type="button" onclick="removeEle()">삭제</button>
+	</div>
+</body>
+</html>

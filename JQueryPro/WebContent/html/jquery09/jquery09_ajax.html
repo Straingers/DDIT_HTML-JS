@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<script src="/JQueryPro/js/jquery09_ajax.js"></script>
+	<style type="text/css">
+		td, th {
+			border: 1px solid;
+			height: 20px;
+			padding: 5px;
+		}
+		th {
+			background-color: lightgray;
+		}
+		table {
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+	<form action="../jquery1/jquery01_basic.html" method="get" id="fm">
+		이름 : <input type="text"><br>
+		나이 : <input type="text"><br><br>
+		<button type="button">post버튼</button>
+		<button type="button" onclick="fnGet()">get버튼</button><hr>
+		<button type="button" onclick="fnAjax()">Ajax버튼</button>
+		<hr>
+		<button type="button" onclick="fnText()">텍스트</button>
+		<button type="button" onclick="fnHtml()">HTML</button>
+		<button type="button" onclick="fnJsonObj()">JSON obj</button>
+		<button type="button" onclick="fnJsonArr()">JSON 배열</button>
+		<button type="button" onclick="fnJsonList()">JSON 목록</button>
+		<hr>
+		<button type="button" onclick="fnXmlTitle()">XML(제목목록)</button>
+		<button type="button" onclick="fnXmlArtist()">XML(가수목록)</button>
+		<button type="button" onclick="fnXmlTable()">XML 목록</button>
+	</form>
+	<div id="divResult"></div>
+</body>
+</html>

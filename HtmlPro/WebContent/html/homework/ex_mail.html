@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>이메일 전송화면</title>
+	<style>
+		.name {
+			
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<fieldset>	
+			<legend><h1>이메일 전송화면</h1></legend>
+			<div>
+				이름<span class="name">
+						<input type="text" name="userName" maxlength="30"><br>
+					</span>
+			</div>
+			이메일 <input type="text" name="userEmail" maxlength="30" placeholder="ex)abc123@gmail.com"><br>
+			내용<br>
+			<textarea rows="10" cols="100" name="content"></textarea><br>
+			<button type="submit" onclick="alert('전송되었습니다.');">전송</button>
+			<input type="reset" value="재설정"><br>
+		</fieldset> 
+	</form>
+</body>
+</html>

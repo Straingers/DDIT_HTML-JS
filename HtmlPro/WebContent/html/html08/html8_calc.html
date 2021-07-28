@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>덧셈 계산기</title>
+</head>
+<body>
+	<h1>덧셈 계산기</h1>
+	<br>
+	첫번째 정수 : <input type="text" id="value1"><br>
+	두번째 정수 : <input type="text" id="value2"><br>
+	합계 : <input type="text" id="sum"><br>
+	<button type="button" onclick="calc();">계산</button>
+	<p>첫번째 값 : <span id="result1"></span></p>
+	<p>두번째 값 : <span id="result2"></span></p>
+	<p>결과 : <span id="result3"></span></p>
+	<script type="text/javascript">
+		function calc() {
+			// 첫번째 값, 두번째 값을 더해서 합계(input)에 표시하고
+			var value1 = document.getElementById("value1").value;
+			var value2 = document.getElementById("value2").value;
+			var sum = parseInt(value1) + parseInt(value2);
+			
+			document.getElementById("sum").value = sum;
+			// 첫번째 값, 두번째 값, 결과 텍스트에 표시 
+			document.getElementById("result1").innerHTML = value1;
+			document.getElementById("result2").innerHTML = value2;
+			document.getElementById("result3").innerHTML = sum;
+		}
+	</script>
+	
+	<hr>
+	
+	<button type="button" onclick="greeting('홍길동', '과장');">눌러보세요</button>
+	<script type="text/javascript">
+		function greeting(name, position) {
+			alert(name + " " + position + "님 안녕하세요. 반갑습니다.");
+		}
+		// NaN : not a number
+		// undefined : 값이 없음
+	</script>
+	<hr>
+	<script type="text/javascript">
+		function sub(a, b) {
+			return a + b;
+		}
+		window.onload = function() { //window.onload : 창이 열리면 실행된다.
+			document.getElementById("a").innerHTML = sub(4, 5);
+		}
+	</script>
+	<p id="a"></p>
+	<hr>
+	<p id="tmp"></p>
+	
+	<script type="text/javascript">
+		var result = confirm("컨펌 메세지입니다."); // 확인, 취소 버튼이 있는 창
+		document.getElementById("tmp").innerHTML = result;
+	</script>
+	
+	
+</body>
+</html>

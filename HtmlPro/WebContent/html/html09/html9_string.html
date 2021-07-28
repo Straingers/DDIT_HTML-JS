@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var str = "독도는 일본땅";
+		document.write(str + "이라는 말도 안되는 소리를 바꿔줍니다.<br>");
+		
+		document.write("str.search(\"일본\") => " + str.search("일본") + "<br>");
+		document.write("str.replace(\"일본\", \"우리\") => " + str.replace("일본", "우리") + "<br>");
+		
+		document.write("<br>");
+		
+		var str1 = "abcDeFg";
+		document.write("str1.toLowerCase() => " + str1.toLowerCase() + "<br>");
+		document.write("str1.toUpperCase() => " + str1.toUpperCase() + "<br>");
+		
+		document.write("<hr>");
+
+		var str2 = "이휘로,전윤주,김현슬,박예진,정유진";
+		document.write(str2 + "<br>");
+	
+		var arr2 = str2.split(","); // split사용시 배열로 리턴
+		document.write("split 결과 : " + arr2 + "<br>");
+		document.write("split 결과 arr 길이 : " + arr2.length + "<br>");
+		
+		for (var i = 0; i < arr2.length; i++) {
+			document.write((i + 1) + ") " + arr2[i] + "님 안녕." + "<br>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

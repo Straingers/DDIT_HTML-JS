@@ -1,0 +1,29 @@
+@charset "UTF-8";
+img {
+	width: 90%;
+	border: 1px solid lightgray;
+}
+.first {
+	border: 1px solid lightgray;
+	width: calc(25% - 22px);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	float: left;
+}
+.second {
+	border: 1px solid lightgray;
+	width: calc(25% - 22px);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	float: left;
+}
+.three {
+	border: 1px solid lightgray;
+	width: calc(25% - 22px);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	float: left;
+}

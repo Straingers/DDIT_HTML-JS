@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>숫자 추측</title>
+	<script type="text/javascript">
+		var randomNo = parseInt(Math.random() * 100 + 1);
+		
+		function guessNumber() {
+			var val = document.getElementById("no").value;
+
+			if (randomNo == val) {
+				alert("정답입니다.");
+			} else if (randomNo < val) {
+				alert(val + "보다 작은 수 입니다.");
+			} else if (randomNo > val){
+				alert(val + "보다 큰 수 입니다.");
+			} else {
+				alert("비교 불가!!\n입력값 : " + val);
+			}
+		}
+		function lotto(){
+			var nums = [];
+			while(nums.length == 6){
+				for (var i = 0; i < 6; i++) {
+					var num = parseInt(Math.random() * 45 + 1);
+					if(nums.indexOf(num) == -1){
+		 				nums.push(num);
+					}
+				}
+			}
+			nums.sort(function(a, b)  {
+		                if(a > b) return 1;
+		                if(a === b) return 0;
+		                if(a < b) return -1;
+	        		});
+			document.getElementById("num").innerHTML = nums;
+		}
+	</script>
+</head>
+<body>
+	<h2>Number Guess</h2>
+	<p>
+		1부터 100 사이의 숫자를 입력하세요.
+	</p>
+	<input type="text" id="no">
+	<button type="button" onclick="guessNumber()">숫자 추측</button>
+	<hr><hr>
+	<h2>로또 번호 생성</h2>
+	<button type="button" onclick="lotto()">번호 생성</button>
+	<span id="num"></span>
+</body>
+</html>

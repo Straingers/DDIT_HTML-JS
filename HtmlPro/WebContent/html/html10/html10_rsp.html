@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>가위 바위 보</title>
+	<style type="text/css">
+		div {
+			width: 50%;
+			float: left;
+			text-align: center;
+		}
+		img {
+			width: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		function game() {
+// 			var user = prompt("가위/바위/보", "");
+			var user = document.getElementById("rsp").value;
+			
+			var arrImgs = document.getElementsByTagName("img");
+			for (var i = 0; i < arrImgs.length; i++) {
+				arrImgs[i].remove();
+				arrImgs[i].remove();
+			}
+			
+			var arr = ["가위", "바위", "보"];
+			var userIdx = arr.indexOf(user);
+			var comIdx = Math.floor(Math.random() * 3);
+			var com = arr[comIdx];
+			
+			var userImgArr = ["ga_left.png", "ba_left.png", "bo_left.png"];
+			var comImgArr = ["ga_right.png", "ba_right.png", "bo_right.png"];
+			
+			var userImg = document.getElementById("userEle");
+			var comImg = document.getElementById("comEle");
+			var result = document.getElementById("result");
+			
+			var userimgObj = document.createElement("img");
+			var comimgObj = document.createElement("img");
+			
+			if (userIdx == comIdx){
+				userimgObj.src = "../../images/" + userImgArr[userIdx];
+				comimgObj.src = "../../images/" + comImgArr[comIdx];
+				result.innerHTML = "결과 : 무승부!";
+			} else if (userIdx > comIdx){
+				if(comIdx == 0 && userIdx == 2){
+					userimgObj.src = "../../images/" + userImgArr[userIdx];
+					comimgObj.src = "../../images/" + comImgArr[comIdx];
+					result.innerHTML = "결과 : 당신 패!";
+				} else {
+					userimgObj.src = "../../images/" + userImgArr[userIdx];
+					comimgObj.src = "../../images/" + comImgArr[comIdx];
+					result.innerHTML = "결과 : 당신 승!";
+				}
+			} else if (userIdx < comIdx){
+				if(comIdx == 2 && userIdx == 0){
+					userimgObj.src = "../../images/" + userImgArr[userIdx];
+					comimgObj.src = "../../images/" + comImgArr[comIdx];
+					result.innerHTML = "결과 : 당신 승!";
+				} else {
+					userimgObj.src = "../../images/" + userImgArr[userIdx];
+					comimgObj.src = "../../images/" + comImgArr[comIdx];
+					result.innerHTML = "결과 : 당신 패!";
+				}
+			}
+			userImg.appendChild(userimgObj);
+			comImg.appendChild(comimgObj);
+		}
+	</script>
+</head>
+<body style="text-align: center;">
+	<select id="rsp">
+		<option>가위</option>
+		<option>바위</option>
+		<option>보</option>
+	</select>
+	<button type="button" onclick="game()">게임시작</button><br>
+	<div>
+		<p style="background-color: yellow">사 람</p>
+		<p id="userEle"></p>
+	</div>
+	<div>
+		<p style="background-color: red">컴 퓨 터</p>
+		<p id="comEle" ></p>
+	</div>
+	<p id="result" style="text-align: center;"></p>
+</body>
+</html>

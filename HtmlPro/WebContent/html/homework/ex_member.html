@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>회원 가입 화면</title>
+</head>
+<body>
+	<form>
+		<fieldset>	
+			<legend><h1>회원 가입 화면</h1></legend>
+			이름 <input type="text" name="userName" maxlength="30"><br>
+			주소 <input type="text" name="userAdd" maxlength="30"><br>
+			이메일 <input type="text" name="userEmail" maxlength="30" placeholder="ex)abc123@gmail.com"><br>
+			<input type="radio" name="gender" value="M" id="genderMale">
+			<label for="genderMale">Male</label><br>
+			<input type="radio" name="gender" value="F" id="genderFemale">
+			<label for="genderFemale">Female<label><br>
+			<button type="submit" onclick="alert('전송되었습니다.');">Send</button>
+			<input type="reset" value="원래대로"><br>
+		</fieldset> 
+	</form>
+</body>
+</html>

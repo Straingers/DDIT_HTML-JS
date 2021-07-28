@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/jquery-3.6.0.js"></script>
+	<style type="text/css">
+		.emphasis {
+			color: red;
+			font-size: 1.5em;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// p태그에 마우스를 올리면 글자가 빨간색, 1.5배로 커진다.
+			
+// 			$("p").on("mouseover", function(){
+// 				$(this).css("color", "red").css("font-size", "1.5em");
+// 			});
+// 			$("p").on("mouseout", function(){
+// 				$(this).css("color", "black").css("font-size", "1em");
+// 			});
+			
+// 			$("p").on({
+// 				mouseover : function(){
+// 					this.className = "emphasis";
+// 				}
+// 				, mouseout : function(){
+// 					this.className = "";
+// 				}
+// 			});
+			
+			$("p").on("mouseover mouseout", function(){
+				$(this).toggleClass("emphasis");
+			})
+		});
+	</script>
+</head>
+<body>
+	<p>
+		마우스를 올려보세요~
+	</p>
+</body>
+</html>

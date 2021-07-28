@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>File API</title>
+	<style type="text/css">
+		div {
+			background-color: #E6E6E6;
+			padding: 10px;
+			margin: 0px;
+		}
+		#infoRes {
+			border: 2px dashed orange; 
+			height: 100px; 
+			background-color: white;
+			padding: 5px 0px;
+		}
+		#infoArea {
+			padding-bottom: 0px;
+		}
+		p {
+			margin: 0px;
+		}
+		h2 {
+			margin: 10px 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		function readFile(){
+			var files = document.getElementById("attachFile").files; 
+			
+			// 파일이 없으면 파일이 없다고 문구 띄워주기
+			if(files.length < 1) {
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			
+			// 파일이 있으면 넘어가고 파일 정보를 가져온다
+			var file = files[0];
+			var str = ""; 
+			str += "파일명 : " + file.name + "<br>";
+			str += "파일크기 : " + file.size + "<br>";
+			str += "파일타입 : " + file.type + "<br>";
+			str += "최근수정일 : " + file.lastModifiedDate + "<br>";
+			
+			// 파일 타입이 image인 경우
+			if(file.type.substr(0, 5) == "image"){ 
+			// = file.type.indexOf("image") == 0
+			// = file.type.match("image")
+			
+				// 만약 이미지가 있다면 이미지를 제거해준다.
+				if(document.getElementById("imgInsert").children.length > 0){
+					document.getElementById("tmp").remove();
+				}
+				// FileReader()를 이용하여 파일을 읽어와 DataURL타입으로 불러온다.
+				var reader = new FileReader();
+				reader.readAsDataURL(file);
+				
+				reader.onload = function () {
+					document.getElementById("resultText").innerHTML = reader.result;
+					// img유형의 요소를 생성하여 imgInsert에 담아준다.
+					var newImg = document.createElement("img");
+					newImg.src = reader.result;
+					newImg.height = "300";
+					newImg.id = "tmp";
+					document.getElementById("imgInsert").append(newImg);
+				}
+				// 선생님 답
+				/* reader.onload = function () {
+					document.getElementById("resultText").innerHTML = reader.result;
+					
+					var objImg = document.getElementById("imgResult") // div에 이미지를 넣어놓는다
+					if(file.type.substr(0, 5) == "image") {
+						// 이미지가 보이게
+						objImg.src = reader.result;
+						objImg.alt = file.name;
+						objIng.style.display = "inline"; // default값
+					} 
+					else {
+						objImg.style.display = "none"; // display 숨김	
+					}
+				} */
+			} 
+			// 파일의 타입이 image가 아닌 경우
+			else {
+				// FileReader()를 이용하여 파일을 읽어와 Text타입으로 불러온다.
+				var reader = new FileReader();
+				reader.readAsText(file);
+				
+				// 만약 이미지가 있다면 이미지를 제거해준다.
+				if(document.getElementById("imgInsert").children.length > 0){
+					document.getElementById("tmp").remove();
+				}
+				
+				reader.onload = function () {
+					document.getElementById("resultText").innerHTML = reader.result;
+				}
+			}
+			document.getElementById("infoRes").innerHTML = str;
+		}
+	</script>
+</head>
+<body>
+	<!-- 파일 선택하는 영역 (사용자 입력 부분) -->
+	<div id="fileArea">
+		<input type="file" id="attachFile">
+		<button type="button" onclick="readFile()">읽기</button>
+	</div><br>
+	<!-- 결과 출력 영역 -->
+	<div id="resultArea">
+		<h2>결과 출력(FileReader객체)</h2>
+		<p>
+			이미지파일일 경우에는 DataURL형식으로, 아닌경우 Text형식으로
+		</p><br>
+		<textarea id="resultText" rows="15" cols="70"></textarea>
+	</div><br>
+	<!-- 파일 정보 출력 영역 -->
+	<div id="infoArea">
+		<h2>파일 정보(File객체)</h2>
+		<p>
+			이미지 파일을 읽은 경우에 이미지가 표시된다.<br>
+			다른 파일을 읽었을 경우 이미지가 표시되지 않는다.
+		</p>
+		<div id="imgInsert"></div><br>
+		<p id="infoRes">
+		</p>
+	</div>
+</body>
+</html>

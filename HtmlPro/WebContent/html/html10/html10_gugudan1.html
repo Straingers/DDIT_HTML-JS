@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		div {
+			text-align: center;
+		}
+		input {
+			width: 15px;
+		}
+	</style>
+	<script type="text/javascript">
+		function ggd() {
+			var ggd = document.getElementById("ggd").value;
+			
+			var result = ggd + "단\n\n";
+			for(var i = 1; i <= 9; i++) {
+				result += ggd + " X " + i + " = " + ggd*i + "\n";
+			}
+			document.getElementById("result").innerHTML += result + "\n";
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<input type="text" id="ggd">단 
+		<button type="button" onclick="ggd()">출력</button>
+	</div>
+	<br>
+	<div>
+		<textarea rows="15" cols="" id="result"></textarea>
+	</div>
+</body>
+</html>

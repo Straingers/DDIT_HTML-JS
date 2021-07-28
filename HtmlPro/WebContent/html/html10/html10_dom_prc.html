@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>이미지 변경</title>
+	<script type="text/javascript">
+		function changeImage() {
+			var ogSrc = document.getElementById("image1").src;
+			var newSrc;
+			if (ogSrc.indexOf("off") > -1) {
+				newSrc = "../../images/sw_on.png";
+			} else {
+				newSrc = "../../images/sw_off.png";
+			}
+			document.getElementById("image1").src = newSrc;
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<img id="image1" onclick="changeImage()" 
+		alt="이미지" src="../../images/sw_off.png" width="400px">
+	</form>
+</body>
+</html>
